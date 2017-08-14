@@ -1,21 +1,50 @@
 header {
-  overflow: hidden;
-  margin-top: 1rem;
+  display: flex;
+  align-items: center;
   background-color: lightblue;
+  margin-top: 1rem;
   .icon {
-    text-align: left;
+    margin-left: 1rem;
   }
-  .menu {
+  #menu {
     text-align: right;
     #menu-bars {
-      padding: 0;
+      margin-right: 2rem;
     }
   }
-  .hidden-menu {
+}
+
+#hidden-menu {
+  height: 100%;
+  width: 0;
+  color: blue;
+  position: fixed;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+  #menu-inner {
     position: absolute;
-    display: block;
     background-color: black;
     color: white;
+    ul {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      text-align: center;
+      list-style: none;
+      li {
+        padding: 0.5rem;
+        border-bottom: 1px solid white;
+        &:hover {
+          background-color: grey;
+        }
+      }
+    }
   }
+}
 
+.show-menu {
+  display: block;
+  right: 10px;
 }
