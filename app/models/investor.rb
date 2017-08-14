@@ -1,0 +1,4 @@
+class Investor < User 
+
+  
+end
