@@ -14,37 +14,20 @@ header {
   }
 }
 
-#hidden-menu {
-  height: 100%;
-  width: 0;
-  color: blue;
+#hidden-nav {
   position: fixed;
-  top: 0;
   right: 0;
-  overflow-x: hidden;
+  width: 0;
+  height: 100%;
+  background-color: black;
+  color: white;
   transition: 0.5s;
-  #menu-inner {
-    position: absolute;
-    background-color: black;
-    color: white;
-    ul {
-      margin: 0;
-      padding: 0;
-      text-decoration: none;
-      text-align: center;
-      list-style: none;
-      li {
-        padding: 0.5rem;
-        border-bottom: 1px solid white;
-        &:hover {
-          background-color: grey;
-        }
-      }
+  ul {
+    text-decoration: none;
+    padding: 0;
+    li {
+      padding: 1rem;
+      border-bottom: 1px solid grey;
     }
   }
-}
-
-.show-menu {
-  display: block;
-  right: 10px;
 }
