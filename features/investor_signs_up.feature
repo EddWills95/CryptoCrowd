@@ -8,4 +8,4 @@ Feature: Investor Signs up
   Then they have a new account
     And they get sent to the homepage
     And they see a message welcoming them
-    And they recieve an email asking them to confirm their email
+    # And they recieve an email asking them to confirm their email
