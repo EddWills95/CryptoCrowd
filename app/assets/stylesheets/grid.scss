@@ -1,0 +1,58 @@
+// set variables
+$column_sizes: (2,4,8,12); // list of column sizes supported by grid system
+$max-grid-width: 960px;
+$gutter_width: 10px;
+
+// reset
+html, body {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+}
+
+// define grid
+.grid {
+  max-width: $max-grid-width;
+  margin: 0 auto;
+
+  .column {
+    vertical-align: top;
+
+    // iterating over column sizes, for example first 2, then 4, then 8, and finally 12
+    @each $num_columns in $column_sizes {
+
+      // total of all gutter space required by grid
+      $gutter_space: ($num_columns - 1) * $gutter_width;
+
+      // looping over number of possible columns, for example first 1 of 2
+      @for $current_column from 1 to $num_columns {
+        $column_width: ($max-grid-width - $gutter_space) / $num_columns;
+
+        &.col-#{$current_column}-of-#{$num_columns} {
+          // if width this is under width, elements will stack as per div default
+          @media (min-width: 700px) {
+            display: inline-block;
+            // width calculated as percentage
+            width: percentage($current_column / $num_columns - $gutter_width / $max-grid-width);
+            // rather than having margin-left and margin-right, only margin-right is applied
+            margin-right: $gutter_width;
+          }
+        }
+
+        &.offset-#{$current_column}-of-#{$num_columns} {
+          // if width this is under width, no offsets applied
+          @media (min-width: 700px) {
+            display: inline-block;
+            // margin-left calculated as percentage
+            margin-left: percentage($current_column / $num_columns);
+          }
+        }
+      }
+    }
+
+    // last column margin-right removed
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
