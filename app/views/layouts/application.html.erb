@@ -11,17 +11,21 @@
 
   <body>
     <header class="grid">
-      <div class="icon column col-1-of-2">
+      <div class="icon column col-4-of-8">
         <h1>CryptoCrowd</h1>
       </div>
-      <div class="menu column col-1-of-2">
-        <div class="menu-bars" onclick="menuAnimate(this)">
+      <div class="menu column col-4-of-8">
+        <div id="menu-bars">
           <div class="bar1"></div>
           <div class="bar2"></div>
           <div class="bar3"></div>
         </div>
       </div>
-
+      <div class="hidden-menu">
+          <ul>
+            <li>Home</li>
+          </ul>
+        </div>
     </header>
 
     <p class="notice"><%= notice %></p>

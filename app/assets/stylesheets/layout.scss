@@ -1,4 +1,5 @@
 header {
+  overflow: hidden;
   margin-top: 1rem;
   background-color: lightblue;
   .icon {
@@ -6,9 +7,15 @@ header {
   }
   .menu {
     text-align: right;
-    .menu-bars {
-      padding: 0.75rem;
-      padding-right: 2rem;
+    #menu-bars {
+      padding: 0;
     }
   }
+  .hidden-menu {
+    position: absolute;
+    display: block;
+    background-color: black;
+    color: white;
+  }
+
 }
