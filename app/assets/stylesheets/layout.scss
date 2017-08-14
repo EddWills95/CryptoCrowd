@@ -1,0 +1,14 @@
+header {
+  margin-top: 1rem;
+  background-color: lightblue;
+  .icon {
+    text-align: left;
+  }
+  .menu {
+    text-align: right;
+    .menu-bars {
+      padding: 0.75rem;
+      padding-right: 2rem;
+    }
+  }
+}
