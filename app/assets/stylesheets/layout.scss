@@ -22,12 +22,20 @@ header {
   background-color: black;
   color: white;
   transition: 0.5s;
-  ul {
-    text-decoration: none;
-    padding: 0;
-    li {
-      padding: 1rem;
-      border-bottom: 1px solid grey;
+  #nav-inner {
+    margin-top: 10rem;
+    ul {
+      text-decoration: none;
+      padding: 0;
+      li {
+        padding: 1rem;
+        border-bottom: 1px solid grey;
+      }
     }
   }
+  
+}
+
+.greyed-out {
+  opacity: 0.5;
 }
