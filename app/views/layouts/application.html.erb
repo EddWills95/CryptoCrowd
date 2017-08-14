@@ -6,9 +6,32 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
 
   <body>
+    <header class="grid">
+      <div class="icon column col-1-of-2">
+        <h1>CryptoCrowd</h1>
+      </div>
+      <div class="menu column col-1-of-2">
+        <div class="menu-bars" onclick="menuAnimate(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </div>
+
+    </header>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
+
+    <footer class="grid">
+      <div>
+      </div>
+    </footer>
   </body>
 </html>
