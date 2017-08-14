@@ -1,3 +1,5 @@
+ActionMailer::Base.delivery_method = :test
+
 Given(/^They are on the investor sign up page$/) do
   visit new_investor_registration_path
 end
