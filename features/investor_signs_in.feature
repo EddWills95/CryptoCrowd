@@ -1,5 +1,6 @@
 Feature: Investor Signs in
-  @wip @javascript
+  
+  @javascript
   Scenario: Investor signs into the site
   Given there is a registered investor 
     And they are on the homepage

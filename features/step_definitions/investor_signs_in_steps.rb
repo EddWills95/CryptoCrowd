@@ -1,6 +1,7 @@
 Given(/^there is a registered investor$/) do
   @investor = Investor.new(email: "example@somewhere.org", password: "password", password_confirmation: "password")
   @investor.skip_confirmation!
+  @investor.save
 end
 
 When(/^they click on the menu bar$/) do
@@ -8,25 +9,25 @@ When(/^they click on the menu bar$/) do
 end
 
 When(/^they click on investor sign in$/) do
-  click_on 'Investor Login'
+  click_on "Investor Login"
 end
 
 Then(/^they are on the sign in page$/) do
-  expect(page.current_path).to eq(new_investor_session_path)
+  expect(page.current_path).to eq('/investors/sign_in')
 end
 
 When(/^they fill in their email$/) do
-  fill_in 'email', :with => "example@somewhere.org"
+  fill_in 'Email', :with => "example@somewhere.org"
 end
 
 When(/^they fill in their password$/) do
-  fill_in 'password', :with => "password"
+  fill_in 'Password', :with => "password"
 end
 
 When(/^they press sign in$/) do
-  click_on 'Log In'
+  click_on 'Log in'
 end
 
 Then(/^they are signed in$/) do
-  expect(current_user.email).to eq "example@somewhere.org"
+  expect(page).to have_content("Signed in successfully")
 end
