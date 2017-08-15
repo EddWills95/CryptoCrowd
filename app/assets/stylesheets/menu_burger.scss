@@ -1,7 +1,13 @@
+// N.B. 
+// Rethink the positioning of the bars
+
 #menu-bars {
+  z-index: 1000;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
   display: inline-block;
   cursor: pointer;
-  z-index: 20000;
   .bar1, .bar2, .bar3 {
     width: 3rem;
     height: 0.5rem;
