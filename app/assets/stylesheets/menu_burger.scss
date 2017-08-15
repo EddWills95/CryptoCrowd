@@ -1,0 +1,30 @@
+// N.B. 
+// Rethink the positioning of the bars
+
+#menu-bars {
+  z-index: 1000;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  display: inline-block;
+  cursor: pointer;
+  .bar1, .bar2, .bar3 {
+    width: 3rem;
+    height: 0.5rem;
+    background-color: black;
+    margin: 6px 0;
+    transition: 0.4s; 
+  }
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-12px, 9px) ;
+  transform: rotate(-45deg) translate(-12px, 9px) ;
+}
+.change .bar2 {
+  opacity: 0;
+}
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-9px, -9px) ;
+  transform: rotate(45deg) translate(-9px, -9px) ;
+}

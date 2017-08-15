@@ -1,14 +1,44 @@
 header {
-  margin-top: 1rem;
+  z-index: -100;
+  display: flex;
+  align-items: center;
   background-color: lightblue;
+  margin-top: 1rem;
   .icon {
-    text-align: left;
+    margin-left: 1rem;
   }
-  .menu {
+  #menu {
     text-align: right;
-    .menu-bars {
-      padding: 0.75rem;
-      padding-right: 2rem;
+    #menu-bars {
+      margin-right: 2rem;
     }
   }
+}
+
+#hidden-nav {
+  position: fixed;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background-color: black;
+  color: white;
+  transition: 0.5s;
+  #nav-inner {
+    margin-top: 10rem;
+    ul {
+      text-decoration: none;
+      padding: 0;
+      li {
+        padding: 1rem; 
+        border-bottom: 1px solid grey;
+        &:hover {
+          background-color: lightgrey;
+        }
+      }
+    }
+  }
+}
+
+.greyed-out {
+  opacity: 0.5;
 }

@@ -10,28 +10,41 @@
   </head>
 
   <body>
-    <header class="grid">
-      <div class="icon column col-1-of-2">
-        <h1>CryptoCrowd</h1>
+    <div id="hidden-nav">
+      <div id="nav-inner">
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Login/LogOut</li>
+        </ul>
       </div>
-      <div class="menu column col-1-of-2">
-        <div class="menu-bars" onclick="menuAnimate(this)">
-          <div class="bar1"></div>
-          <div class="bar2"></div>
-          <div class="bar3"></div>
+    </div>
+    <div id="menu-bars">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <div id="main-body">
+      <header class="grid" style="margin-top: 1rem;">
+        <div class="column col-2-of-4 icon">
+          <h1>CryptoCrowd</h1>
         </div>
+        <div class="column col-2-of-4" id="menu">
+        </div>
+      </header>
+
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <div class="grid" id="main-grid">
+        <%= yield %>
       </div>
 
-    </header>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
-
-    <footer class="grid">
-      <div>
-      </div>
-    </footer>
+      <footer class="grid">
+        <div>
+          <h2>this is the footer</h2>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
