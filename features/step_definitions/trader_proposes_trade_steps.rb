@@ -15,7 +15,7 @@ Then(/^they are taken to the proposition page$/) do
 end
 
 When(/^they fill in the title$/) do
-  fill_in 'title', :with => "BUY ALL THE BITCOIN"
+  fill_in 'Title', :with => "BUY ALL THE BITCOIN"
 end
 
 When(/^they select the currency pair$/) do
@@ -24,7 +24,7 @@ When(/^they select the currency pair$/) do
 end
 
 When(/^they fill in the description$/) do
-  fill_in 'description', :with => "Bitcoin to the moooooooooo00nn"
+  fill_in 'Description', :with => "Bitcoin to the moooooooooo00nn"
 end
 
 When(/^they click submit$/) do
