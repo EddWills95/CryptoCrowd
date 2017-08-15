@@ -1,6 +1,5 @@
 Feature: Trader Signs in
   
-  @wip
   Scenario: Trader signs into the site
   Given there is a registered trader 
     And they are on the trader sign in page
