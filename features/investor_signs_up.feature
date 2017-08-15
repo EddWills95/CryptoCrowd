@@ -3,7 +3,7 @@ Feature: Investor Signs up
   Given They are on the investor sign up page
   When they enter their email
     And they enter their password
-    And they conform their password
+    And they confirm their password
     And they register
   Then they have a new account
     And they get sent to the homepage

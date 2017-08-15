@@ -12,7 +12,7 @@ When(/^they enter their password$/) do
   fill_in 'Password', :with => "password"
 end
 
-When(/^they conform their password$/) do
+When(/^they confirm their password$/) do
   fill_in 'Password confirmation', :with => "password"
 end
 
