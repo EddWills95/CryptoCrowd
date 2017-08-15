@@ -16,6 +16,10 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li>About</li>
+          <!-- refactor for different users -->
+          <% if current_trader %>
+            <li><a href=<%= new_proposition_path %>>Create Proposition</a></li>
+          <% end %>
           <li><a href=<%= new_investor_session_path %>>Investor Login</a></li>
           <li><a href=<%= new_trader_session_path %>>Trader Login</a></li>
         </ul>
