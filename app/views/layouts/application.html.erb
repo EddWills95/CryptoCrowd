@@ -3,7 +3,7 @@
   <head>
     <title>CryptoCrowd</title>
     <%= csrf_meta_tags %>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -25,17 +25,18 @@
         </ul>
       </div>
     </div>
-    
+
     <div id="menu-bars">
       <div class="bar1"></div>
       <div class="bar2"></div>
       <div class="bar3"></div>
     </div>
-    <div id="main-body">
 
+    <div id="main-body">
       <header class="grid" style="margin-top: 1rem;">
         <div class="column col-2-of-4 icon">
           <h1><a href="/">CryptoCrowd</a></h1>
+          <p id="btc-price"><p>
         </div>
         <div class="column col-2-of-4" id="menu">
         </div>
