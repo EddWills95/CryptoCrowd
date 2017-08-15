@@ -1,14 +1,16 @@
 <h1>Main#index</h1>
 <p>Find me in app/views/main/index.html.erb</p>
 
-<% @propositions.each do |prop| %>
-  <h1><%= prop.title %></h1>
-  <p><%= prop.description %></p>
+<div id="main-grid">
+  <% @propositions.each do |prop| %>
+    <h1><%= prop.title %></h1>
+    <p><%= prop.description %></p>
 
-  <table>
-    <tr>
-      <td><%= prop.currency1_id %></td>
-      <td><%= prop.currency2_id %></td>
-    </tr>
-  </table>
-<% end %>
+    <table>
+      <tr>
+        <td><%= prop.currency1_id %></td>
+        <td><%= prop.currency2_id %></td>
+      </tr>
+    </table>
+  <% end %>
+</div>

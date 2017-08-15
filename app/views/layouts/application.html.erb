@@ -15,7 +15,7 @@
       <div id="nav-inner">
         <ul>
           <li><a href="/">Home</a></li>
-          <li>About</li>
+          <li><a href="#">About</a></li>
           <!-- refactor for different users -->
           <% if current_trader %>
             <li><a href=<%= new_trader_proposition_path(@trader) %>>Create Proposition</a></li>
@@ -36,18 +36,30 @@
       <header class="grid" style="margin-top: 1rem;">
         <div class="column col-2-of-4 icon">
           <h1><a href="/">CryptoCrowd</a></h1>
-          <p id="btc-price"><p>
         </div>
         <div class="column col-2-of-4" id="menu">
+          <div class="ticker">
+            <h4><span id="btc-price"></span></h4>
+            <h5>BTC/USD</h5>
+            <p>(CoinBase)</p>
+          </div>
+          <div class="ticker">
+            <h4><span id="eth-price"></span></h4>
+            <h5>ETH/USD</h5>
+            <p>(CoinBase)</p>
+          </div>
+          <div class="ticker">
+            <h4><span id="ltc-price"></span></h4>
+            <h5>LTC/USD</h5>
+            <p>(CoinBase)</p>
+          </div>
         </div>
       </header>
 
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
-      <div class="grid" id="main-grid">
-        <%= yield %>
-      </div>
+      <%= yield %>
 
       <footer class="grid">
         <div>
