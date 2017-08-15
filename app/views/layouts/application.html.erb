@@ -10,24 +10,32 @@
   </head>
 
   <body>
+    <!-- N.B. refactor into partials -->
     <div id="hidden-nav">
       <div id="nav-inner">
         <ul>
-          <li>Home</li>
+          <li><a href="/">Home</a></li>
           <li>About</li>
-          <li>Login/LogOut</li>
+          <!-- refactor for different users -->
+          <% if current_trader %>
+            <li><a href=<%= new_trader_proposition_path(@trader) %>>Create Proposition</a></li>
+          <% end %>
+          <li><a href=<%= new_investor_session_path %>>Investor Login</a></li>
+          <li><a href=<%= new_trader_session_path %>>Trader Login</a></li>
         </ul>
       </div>
     </div>
+    
     <div id="menu-bars">
       <div class="bar1"></div>
       <div class="bar2"></div>
       <div class="bar3"></div>
     </div>
     <div id="main-body">
+
       <header class="grid" style="margin-top: 1rem;">
         <div class="column col-2-of-4 icon">
-          <h1>CryptoCrowd</h1>
+          <h1><a href="/">CryptoCrowd</a></h1>
         </div>
         <div class="column col-2-of-4" id="menu">
         </div>

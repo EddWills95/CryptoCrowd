@@ -1,0 +1,18 @@
+<%= form_for @proposition, url: trader_propositions_path(@trader) do |f| %>
+  <fieldset>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :currency1 %>
+    <%= f.collection_select :currency1_id, Currency.all, :id, :name %>
+
+    <%= f.label :currency2 %>
+    <%= f.collection_select :currency2_id, Currency.all, :id, :name %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </fieldset>
+  <%= f.submit "Propose" %>
+<% end %>
