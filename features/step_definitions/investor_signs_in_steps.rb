@@ -17,6 +17,7 @@ Then(/^they are on the sign in page$/) do
 end
 
 When(/^they fill in their email$/) do
+  save_and_open_page
   fill_in 'Email', :with => "example@somewhere.org"
 end
 

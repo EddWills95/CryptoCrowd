@@ -25,13 +25,9 @@ Then(/^they have a new account$/) do
 end
 
 Then(/^they get sent to the homepage$/) do
-  expect(page.current_path).to eq'/'
-end
-
-Then(/^they see a message welcoming them$/) do
-  expect(page).to have_content("Welcome to CryptoCrowd")
+  expect(page.current_path).to eq('/')
 end
 
 Then(/^they recieve an email asking them to confirm their email$/) do
-  # expect(ActionMailer::Base.deliveries.length).to eq(1);
+  expect(ActionMailer::Base.deliveries.length).to eq(1);
 end

@@ -3,7 +3,7 @@ class CreatePropositions < ActiveRecord::Migration[5.1]
     create_table :propositions do |t|
       t.string :title
       t.text :description
-      t.references :trader, foreign_key: true
+      t.references :trader
 
       t.timestamps
     end

@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815111258) do
+ActiveRecord::Schema.define(version: 20170815130010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "currencies", force: :cascade do |t|
+    t.string "name"
+    t.float "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "propositions", force: :cascade do |t|
     t.string "title"
@@ -21,6 +28,8 @@ ActiveRecord::Schema.define(version: 20170815111258) do
     t.bigint "trader_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "currency1_id"
+    t.integer "currency2_id"
     t.index ["trader_id"], name: "index_propositions_on_trader_id"
   end
 
