@@ -6,10 +6,9 @@ class PropositionsController < ApplicationController
 
   def create
     @trader = Trader.find(params[:trader_id])
-    binding.pry
     @proposition = @trader.propositions.new(create_params)
     if @proposition.save 
-      redirect '/'
+      redirect_to '/'
     else
       flash[:alert] = "Error, Try Again!!"
       render :action => "new" 
