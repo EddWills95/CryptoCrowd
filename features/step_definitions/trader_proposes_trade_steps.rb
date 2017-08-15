@@ -2,9 +2,12 @@ Given(/^they are on the homepage$/) do
   visit '/'
 end
 
+Given(/^they click the the menu bar$/) do
+  find("#menu-bars").click
+end
+
 Given(/^they click on propose$/) do
-  binding.pry
-  click_on 'Propose Trade'
+  click_on 'Create Proposition'
 end
 
 Then(/^they are taken to the proposition page$/) do

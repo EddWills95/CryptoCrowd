@@ -1,6 +1,6 @@
 Feature: Trader Signs in
   
-  @wip @javascript
+  @javascript
   Scenario: Trader signs into the site
   Given there is a registered trader 
     And they are on the homepage
