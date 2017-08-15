@@ -1,0 +1,11 @@
+<%= form_for @proposition, url: {action: "create"} do |f| %>
+  <fieldset>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </fieldset>
+  <%= f.submit "Propose" %>
+<% end %>

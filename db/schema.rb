@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170814152207) do
+ActiveRecord::Schema.define(version: 20170815111258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "propositions", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "trader_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trader_id"], name: "index_propositions_on_trader_id"
+  end
 
   create_table "traders", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -42,4 +51,5 @@ ActiveRecord::Schema.define(version: 20170814152207) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "propositions", "traders"
 end

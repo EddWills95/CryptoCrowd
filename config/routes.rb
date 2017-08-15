@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resource :proposition, :only => [:new, :create]
+
   get 'main/index'
 
   devise_for :investors
