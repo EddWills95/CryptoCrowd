@@ -1,6 +1,6 @@
 Feature: Investor Signs up
   
-  @wip @javascript
+  @javascript
   Scenario: Investor signs up to trade and invest
   Given They are on the investor sign up page
   When they enter their email
