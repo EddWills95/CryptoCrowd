@@ -1,6 +1,6 @@
 Feature: A trader proposition
   
-  @wip @javascript
+  @javascript
   Scenario: A trader proposes a trade for investors
     Given there is a registered trader
       And the trader is logged in
