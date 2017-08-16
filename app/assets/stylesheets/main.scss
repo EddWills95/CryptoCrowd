@@ -2,11 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'utils'; 
+
 #main-grid { 
-  h1 {
-    display: inline-block;
-  }
-  p {
-    display: inline-block;
+  .proposition {
+    background-color: #D3D3D3;
+    @include border-radius(5px);
+    h1 {
+      display: inline-block;
+      margin: 0;
+    }
+    h3 {
+      display: inline-block;
+      margin: 0;
+    }
+    p {
+      display: inline-block;
+      margin: 0;
+    }
   }
 }

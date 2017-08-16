@@ -1,16 +1,18 @@
-<h1>Main#index</h1>
-<p>Find me in app/views/main/index.html.erb</p>
-
-<div id="main-grid">
+<div class="column col-4-of-4">
   <% @propositions.each do |prop| %>
-    <h1><%= prop.title %></h1>
-    <p><%= prop.description %></p>
+    <div class="proposition">
+      <h1><%= prop.title %></h1>
+      <h3><%= prop.trader.name %></h3>
+      <p><%= prop.description %></p>
 
-    <table>
-      <tr>
-        <td><%= prop.currency1_id %></td>
-        <td><%= prop.currency2_id %></td>
-      </tr>
-    </table>
+      <table>
+        <tr>
+          <td><%= prop.currency_to.name %></td>
+          <td><%= prop.currency_from.name %></td>
+        </tr>
+      </table>
+
+      <p>Votes: <%= prop.votes %></p>
+    </div>
   <% end %>
 </div>

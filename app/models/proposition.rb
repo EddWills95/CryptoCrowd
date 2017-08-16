@@ -1,14 +1,9 @@
 class Proposition < ApplicationRecord
 
-  validate :different_currencies
+  # validate :different_currencies
 
-  has_many :currencies
-
+  belongs_to :currency_to, :class_name => "Currency"
+  belongs_to :currency_from, :class_name => "Currency"
+  
   belongs_to :trader
-
-  def different_currencies
-    unless self.currency1_id === self.currency2_id
-      return true
-    end
-  end
 end
