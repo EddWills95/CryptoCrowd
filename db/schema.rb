@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815123848) do
+ActiveRecord::Schema.define(version: 20170816123801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170815123848) do
     t.bigint "currency_from_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "votes"
     t.index ["currency_from_id"], name: "index_propositions_on_currency_from_id"
     t.index ["currency_to_id"], name: "index_propositions_on_currency_to_id"
     t.index ["trader_id"], name: "index_propositions_on_trader_id"
