@@ -8,7 +8,7 @@ header {
     margin-left: 1rem;
   }
   #menu {
-    text-align: right;
+    text-align: left;
     #menu-bars {
       margin-right: 2rem;
     }
@@ -24,12 +24,14 @@ header {
   color: white;
   transition: 0.5s;
   #nav-inner {
-    margin-top: 10rem;
+    margin-top: 15rem;
     ul {
+      list-style: none;
       text-decoration: none;
       padding: 0;
       li {
-        padding: 1rem; 
+        // Inline Block Problem.
+        padding: 1rem;
         border-bottom: 1px solid grey;
         &:hover {
           background-color: lightgrey;

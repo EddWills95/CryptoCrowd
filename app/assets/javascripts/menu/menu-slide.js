@@ -11,7 +11,7 @@ $(function() {
     menuAnimate(this);
     if(state == "closed") {
       state = "open"; 
-      document.getElementById('hidden-nav').style.width = "35%";
+      document.getElementById('hidden-nav').style.width = "25%";
       bodyObject.className += "greyed-out";
       for(var i = 0; i < menuLines.length; i++) {
         menuLines[i].style.backgroundColor = "white";
