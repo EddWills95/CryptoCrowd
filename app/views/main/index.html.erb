@@ -1,8 +1,5 @@
-<h1>Main#index</h1>
-<p>Find me in app/views/main/index.html.erb</p>
-
-<div id="main-grid">
-  <% @propositions.each do |prop| %>
+<% @propositions.each do |prop| %>
+  <div class="proposition"
     <h1><%= prop.title %></h1>
     <p><%= prop.description %></p>
 
@@ -12,5 +9,5 @@
         <td><%= prop.currency2_id %></td>
       </tr>
     </table>
-  <% end %>
-</div>
+  </div>
+<% end %>
