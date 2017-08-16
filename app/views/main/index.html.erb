@@ -1,13 +1,16 @@
-<% @propositions.each do |prop| %>
-  <div class="proposition"
-    <h1><%= prop.title %></h1>
-    <p><%= prop.description %></p>
+<div class="column col-4-of-4">
+  <% @propositions.each do |prop| %>
+    <div class="proposition">
+      <h1><%= prop.title %></h1>
+      <h3><%= prop.trader.name %></h3>
+      <p><%= prop.description %></p>
 
-    <table>
-      <tr>
-        <td><%= prop.currency1_id %></td>
-        <td><%= prop.currency2_id %></td>
-      </tr>
-    </table>
-  </div>
-<% end %>
+      <table>
+        <tr>
+          <td><%= prop.currency1_id %></td>
+          <td><%= prop.currency2_id %></td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+</div>

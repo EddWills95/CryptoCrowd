@@ -6,6 +6,11 @@ Given(/^there are some propositions$/) do
   @proposition2 = Proposition.create!(title: "Sell!", description: "$4300 is top", currency1_id: 1, currency2_id: 2, trader_id: @trader.id)
 end
 
-Then(/^they see the propositions in order$/) do
+Then(/^they see the propositions$/) do
   expect(page).to have_content("Buy Bitcoins!")
+end
+
+Then(/^they see the currencies involved$/) do
+  expect(page).to have_content("BTC")
+  expect(page).to have_content("USD") 
 end
