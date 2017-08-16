@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170816141416) do
+ActiveRecord::Schema.define(version: 20170816153219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20170816141416) do
     t.bigint "currency_from_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "votes"
     t.index ["currency_from_id"], name: "index_propositions_on_currency_from_id"
     t.index ["currency_to_id"], name: "index_propositions_on_currency_to_id"
     t.index ["trader_id"], name: "index_propositions_on_trader_id"
@@ -56,6 +55,22 @@ ActiveRecord::Schema.define(version: 20170816141416) do
     t.string "type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.string "votable_type"
+    t.bigint "votable_id"
+    t.string "voter_type"
+    t.bigint "voter_id"
+    t.boolean "vote_flag"
+    t.string "vote_scope"
+    t.integer "vote_weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+    t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
   create_table "wallets", force: :cascade do |t|
