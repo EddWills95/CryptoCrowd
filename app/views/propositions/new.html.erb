@@ -5,10 +5,10 @@
   </fieldset>
   <fieldset>
     <%= f.label :currency1 %>
-    <%= f.collection_select :currency1_id, Currency.all, :id, :name %>
+    <%= f.collection_select :currency_to_id, Currency.all, :id, :name %>
 
     <%= f.label :currency2 %>
-    <%= f.collection_select :currency2_id, Currency.all, :id, :name %>
+    <%= f.collection_select :currency_from_id, Currency.all, :id, :name %>
   </fieldset>
   <fieldset>
     <%= f.label :description %>

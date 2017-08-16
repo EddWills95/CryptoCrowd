@@ -17,7 +17,8 @@ class PropositionsController < ApplicationController
 
   def create_params
     params.require(:proposition).permit(:title, 
-      :currency1_id, :currency2_id, :description)
+      :currency1_id, :currency2_id, :description,
+      :currency_to_id, :currency_from_id)
   end
 
 end

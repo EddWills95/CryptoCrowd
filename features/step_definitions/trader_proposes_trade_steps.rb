@@ -28,8 +28,8 @@ When(/^they fill in the title$/) do
 end
 
 When(/^they select the currency pair$/) do
-  select 'USD', :from => 'proposition[currency1_id]'
-  select 'BTC', :from => 'proposition[currency2_id]'
+  select 'USD', :from => 'proposition[currency_to_id]'
+  select 'BTC', :from => 'proposition[currency_from_id]'
 end
 
 When(/^they fill in the description$/) do
