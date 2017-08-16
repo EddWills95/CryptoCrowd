@@ -7,10 +7,12 @@
 
       <table>
         <tr>
-          <td><%= prop.currency1_id %></td>
-          <td><%= prop.currency2_id %></td>
+          <td><%= prop.currency_to.name %></td>
+          <td><%= prop.currency_from.name %></td>
         </tr>
       </table>
+
+      <p>Votes: <%= prop.votes %></p>
     </div>
   <% end %>
 </div>
