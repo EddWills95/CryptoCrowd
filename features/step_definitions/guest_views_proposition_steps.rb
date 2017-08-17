@@ -1,5 +1,6 @@
 When(/^they click on a proposition$/) do
   # find(".proposition-link-#{@proposition.id}").click
+  save_and_open_page
   click_on "Buy!!"
 end
 
