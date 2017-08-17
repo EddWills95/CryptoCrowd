@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   
-  resources :traders, only: [:index] do 
+  get 'traders/index'
+
+  get 'traders/show'
+
+  devise_for :investors
+  devise_for :traders
+
+  resources :traders, only: [:index, :show] do 
     resources :propositions 
   end
 
@@ -10,10 +17,6 @@ Rails.application.routes.draw do
       get 'downvote'
     end
   end
-
-
-  devise_for :investors
-  devise_for :traders
 
   get '/', to: 'main#index' 
 

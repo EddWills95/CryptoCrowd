@@ -4,7 +4,7 @@
       <div class="column col-7-of-8 proposition-info">
         <div class="proposition-text">
           <h1><a href=<%= proposition_path(prop.id) %>><%= prop.title %></a></h1>
-          <h3><%= prop.trader.name %></h3>
+          <h3><a href=<%= trader_path(prop.trader.id) %>><%= prop.trader.name %></h3>
           <p><%= prop.description %></p>
           <div class="currency-pair">
             <table>
