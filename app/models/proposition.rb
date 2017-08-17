@@ -10,6 +10,6 @@ class Proposition < ApplicationRecord
   belongs_to :trader
 
   def total_votes
-    self.get_upvotes.size - self.get_downvotes.size
+    self.votes_for.size - self.get_downvotes.size
   end
 end

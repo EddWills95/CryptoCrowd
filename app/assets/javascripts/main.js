@@ -7,11 +7,13 @@ $(function() {
   var voteElements = document.getElementsByClassName('vote-button');
   for(var i = 0; i < voteElements.length; i++) {
     voteElements[i].addEventListener("click", function(){
-      console.log("clicked");
       var action = this.id.split("-")[0];
       var id = this.id.split("-")[1];
       $.ajax({
-        url: "http://localhost:3000/propositions/" + id + "/" + action + "?user_id=" + currentId
+        url: "http://localhost:3000/propositions/" + id + "/" + action + "?user_id=" + currentId,
+        success: function(data) {
+          $("#votecount-" + id)[0].innerText = data
+        }
       })
     })
   }
