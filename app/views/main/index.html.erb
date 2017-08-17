@@ -1,28 +1,20 @@
 <div class="column col-4-of-4">
   <% @propositions.each do |prop| %>
-    <div class="grid proposition">
-      <div class="column col-3-of-4">
-        <div class="proposition-info">
-          <h1><a href="<%= proposition_path(prop.id) %>"><%= prop.title %></a></h1>
-          <h3><%= prop.trader.name %></h3>
-          <p><%= prop.description %></p>
-          <table class="currency-pair">
-            <tr>
-              <td><%= prop.currency_to.name %></td>
-              <td>/</td>
-              <td><%= prop.currency_from.name %></td>
-            </tr>
-          </table>
-        </div>
-      </div>
+    <div class="proposition">
+      <h1><%= prop.title %></h1>
+      <h3><%= prop.trader.name %></h3>
+      <p><%= prop.description %></p>
 
-      <div class="column col-1-of-4">
-        <div class="voting">
-          <i class="fa fa-arrow-up vote-button"  id="upvote-<%= prop.id %>" aria-hidden="true"></i>
-            <p><span><%= prop.total_votes %></span></p>
-          <i class="fa fa-arrow-down vote-button" id="downvote-<%= prop.id %>" aria-hidden="true"></i>
-        </div>
-      </div>
+      <table>
+        <tr>
+          <td><%= prop.currency_to.name %></td>
+          <td><%= prop.currency_from.name %></td>
+        </tr>
+      </table>
+
+      <i class="fa fa-arrow-up vote-button"  id="upvote-<%= prop.id %>" aria-hidden="true"></i>
+        <p>Votes: <span id=<%="votecount-#{prop.id}"%>><%= prop.total_votes ? prop.total_votes : 0 %></span></p>
+      <i class="fa fa-arrow-down vote-button" id="downvote-<%= prop.id %>" aria-hidden="true"></i>
     </div>
   <% end %>
 </div>
