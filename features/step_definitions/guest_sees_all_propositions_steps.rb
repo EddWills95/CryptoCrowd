@@ -20,5 +20,5 @@ Then(/^they see the trader who proposed it$/) do
 end
 
 Then(/^they see the number of votes it has$/) do
-  expect(page).to have_content("325")
+  expect(page).to have_content("0")
 end
