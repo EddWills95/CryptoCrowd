@@ -1,5 +1,5 @@
 Feature: Viewing individual proposition
-  @wip
+  
   Scenario: A guest views a proposition page
     Given there are some propositions
       And they are on the homepage
