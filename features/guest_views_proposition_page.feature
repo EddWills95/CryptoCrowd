@@ -5,3 +5,4 @@ Feature: Viewing individual proposition
       And they are on the homepage
     When they click on a proposition
     Then they are taken to a proposition
+      And they see information regarding the proposition
