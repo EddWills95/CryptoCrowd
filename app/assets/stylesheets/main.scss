@@ -6,19 +6,40 @@
 
 #main-grid { 
   .proposition {
+    display: flex;
+    align-items: center;
     background-color: #D3D3D3;
     @include border-radius(5px);
-    h1 {
-      display: inline-block;
-      margin: 0;
+    .proposition-info {
+      padding: 0.75rem 0;
+      position: relative;
+      margin-left: 1rem;
+      h1 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 60%;
+        margin: 0;
+        margin-bottom: 0.5rem;
+      }
+      h3 {
+        margin: 0;
+      }
+      p {
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .currency-pair {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+      }
     }
-    h3 {
-      display: inline-block;
-      margin: 0;
-    }
-    p {
-      display: inline-block;
-      margin: 0;
+    .voting {
+      text-align: center;
     }
   }
 }
