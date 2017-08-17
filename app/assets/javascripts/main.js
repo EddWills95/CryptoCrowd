@@ -2,10 +2,7 @@
 // All this logic will automatically be available in application.js.
 
 $(function() {
-  var currentId;
-  if(document.getElementById('current_id')) {
-    currentId = document.getElementById('current_id').value;
-  }
+  var currentId = document.getElementById('current_id').value;
 
   var voteElements = document.getElementsByClassName('vote-button');
   for(var i = 0; i < voteElements.length; i++) {
