@@ -1,7 +1,7 @@
 <div class="column col-4-of-4">
   <% @propositions.each do |prop| %>
     <div class="proposition">
-      <h1><%= prop.title %></h1>
+      <h1><a href=<%= proposition_path(prop.id) %>><%= prop.title %></a></h1>
       <h3><%= prop.trader.name %></h3>
       <p><%= prop.description %></p>
 

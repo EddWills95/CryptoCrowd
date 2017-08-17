@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :propositions 
   end
 
-  resources :propositions, :only => [:index] do
+  resources :propositions, :only => [:index, :show] do
     member do
       get 'upvote'
       get 'downvote'

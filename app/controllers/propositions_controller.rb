@@ -4,6 +4,10 @@ class PropositionsController < ApplicationController
     @proposition = Proposition.new
   end
 
+  def show
+    @proposition = Proposition.find(params[:id])
+  end
+
   def create
     @trader = Trader.find(params[:trader_id])
     @proposition = @trader.propositions.new(create_params)
