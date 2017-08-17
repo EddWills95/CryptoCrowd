@@ -12,7 +12,9 @@
         </tr>
       </table>
 
-      <p>Votes: <%= prop.votes %></p>
+      <i class="fa fa-arrow-up vote-button"  id="upvote-<%= prop.id %>" aria-hidden="true"></i>
+        <p>Votes: <span><%= prop.total_votes %></span></p>
+      <i class="fa fa-arrow-down vote-button" id="downvote-<%= prop.id %>" aria-hidden="true"></i>
     </div>
   <% end %>
 </div>

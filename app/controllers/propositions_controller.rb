@@ -15,6 +15,17 @@ class PropositionsController < ApplicationController
     end  
   end
 
+  def upvote
+    @proposition = Proposition.find(params[:id])
+    @proposition.upvote_from(User.find(params[:user_id]))
+  end
+
+  def downvote
+    @proposition = Proposition.find(params[:id])
+    @proposition.downvote_from(User.find(params[:user_id]))
+  end
+
+  private
   def create_params
     params.require(:proposition).permit(:title, 
       :currency1_id, :currency2_id, :description,
