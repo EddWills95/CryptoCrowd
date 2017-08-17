@@ -8,17 +8,47 @@
   .proposition {
     background-color: #D3D3D3;
     @include border-radius(5px);
-    h1 {
-      display: inline-block;
-      margin: 0;
+    display: flex;
+    align-items: center;
+    .proposition-info {
+      position: relative;
+      .proposition-text {
+        padding: 1rem;
+        h1 {
+          width: 60%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: inline-block;
+          margin: 0;
+        }
+        h3 {
+          margin: 0;
+        }
+        p {
+          display: inline-block;
+          width: 60%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin: 0;
+        }
+        .currency-pair {
+          position: absolute;
+          top: 1rem;
+          right: 2rem; 
+        }
+      }
     }
-    h3 {
-      display: inline-block;
-      margin: 0;
+    .proposition-voting {
+      text-align:center;
+      p {
+        margin: 0;
+      }
+      i {
+        font-size: 30px;
+      }
     }
-    p {
-      display: inline-block;
-      margin: 0;
-    }
+
   }
 }
