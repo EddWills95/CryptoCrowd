@@ -39,7 +39,13 @@
       }
     }
     .voting {
+      p {
+        margin: 0.5rem 0;
+      }
       text-align: center;
+      i {
+        font-size: 30px;
+      }
     }
   }
 }
