@@ -3,11 +3,11 @@ Given(/^the investor is logged in$/) do
 end
 
 When(/^they click upvote on a proposition$/) do
+  binding.pry
   find("#upvote-#{@proposition.id}").click
 end
 
 Then(/^the number of votes increases$/) do
   sleep(2)
-  binding.pry
   expect(@proposition.total_votes).to eq(1)
 end

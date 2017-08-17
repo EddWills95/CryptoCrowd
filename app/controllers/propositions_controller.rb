@@ -18,11 +18,13 @@ class PropositionsController < ApplicationController
   def upvote
     @proposition = Proposition.find(params[:id])
     @proposition.upvote_from(User.find(params[:user_id]))
+    @new_vote_number = @proposition.total_votes
   end
 
   def downvote
     @proposition = Proposition.find(params[:id])
     @proposition.downvote_from(User.find(params[:user_id]))
+    @new_vote_number = @proposition.total_votes
   end
 
   private

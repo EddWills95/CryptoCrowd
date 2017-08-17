@@ -13,7 +13,7 @@
       </table>
 
       <i class="fa fa-arrow-up vote-button"  id="upvote-<%= prop.id %>" aria-hidden="true"></i>
-        <p>Votes: <span><%= prop.total_votes %></span></p>
+        <p>Votes: <span id=<%="votecount-#{prop.id}"%>><%= prop.total_votes ? prop.total_votes : 0 %></span></p>
       <i class="fa fa-arrow-down vote-button" id="downvote-<%= prop.id %>" aria-hidden="true"></i>
     </div>
   <% end %>
