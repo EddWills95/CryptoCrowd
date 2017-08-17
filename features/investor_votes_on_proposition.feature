@@ -1,6 +1,6 @@
 Feature: Investor Votes on a proposition
   
-  @wip @javascript
+  @javascript
   Scenario: Investor Up Votes a proposition
     Given there are some propositions 
       And there is a registered investor
