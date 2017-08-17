@@ -15,6 +15,6 @@ $(function() {
           $("#votecount-" + id)[0].innerText = data
         }
       })
-    })
+    }
   }
 })
