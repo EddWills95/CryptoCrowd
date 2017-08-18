@@ -9,74 +9,58 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
 
-  <body>
-    <% if @investor %>
-      <%= hidden_field_tag :current_id, @investor.id %>
+  <body class="grid">
+    <% if current_investor %>
+      <%= hidden_field_tag :current_id, current_investor.id %>
     <% end %>
-    <% if @trader %>
-      <%= hidden_field_tag :current_id, params[@trader.id] %>
+    <% if current_trader %>
+      <%= hidden_field_tag :current_id, current_trader.id %>
     <% end %>
     <!-- N.B. refactor into partials -->
-    
-    <div id="hidden-nav">
-      <div id="nav-inner">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="#">About</a></li>
-          <!-- refactor for different users -->
-          <% if current_trader %>
-            <li><a href=<%= new_trader_proposition_path(@trader) %>>Create Proposition</a></li>
-            <li><a href=<%= edit_trader_registration_path %>>Edit Profile</a></li>
-          <% else %>
-            <li><a href=<%= new_trader_session_path %>>Trader Login</a></li>
-          <% end %>
-          <li><a href=<%= new_investor_session_path %>>Investor Login</a></li>
-        </ul>
+    <%= render "layouts/hidden-nav" %>
+
+    <header class="grid" style="margin-top: 1rem;">
+      <div class="column col-2-of-4 icon">
+        <h1><a href="/">CryptoCrowd</a></h1>
       </div>
-    </div>
-
-    <div id="menu-bars">
-      <div class="bar1"></div>
-      <div class="bar2"></div>
-      <div class="bar3"></div>
-    </div>
-
-    <div id="main-body">
-      <header class="grid" style="margin-top: 1rem;">
-        <div class="column col-2-of-4 icon">
-          <h1><a href="/">CryptoCrowd</a></h1>
+      <div class="column col-2-of-4" id="menu">
+        <div class="ticker">
+          <h4>$<span id="btc-price"></span></h4>
+          <h5>BTC</h5>
+          <p>(CoinBase)</p>
         </div>
-        <div class="column col-2-of-4" id="menu">
-          <div class="ticker">
-            <h4>$<span id="btc-price"></span></h4>
-            <h5>BTC</h5>
-            <p>(CoinBase)</p>
-          </div>
-          <div class="ticker">
-            <h4>$<span id="eth-price"></span></h4>
-            <h5>ETH</h5>
-            <p>(CoinBase)</p>
-          </div>
-          <div class="ticker">
-            <h4>$<span id="ltc-price"></span></h4>
-            <h5>LTC</h5>
-            <p>(CoinBase)</p>
-          </div>
+        <div class="ticker">
+          <h4>$<span id="eth-price"></span></h4>
+          <h5>ETH</h5>
+          <p>(CoinBase)</p>
         </div>
-      </header>
-
+        <div class="ticker">
+          <h4>$<span id="ltc-price"></span></h4>
+          <h5>LTC</h5>
+          <p>(CoinBase)</p>
+        </div>
+        <div id="menu-bars">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </div>
+    </header>
+      
+    <div class="grid" id="main-grid">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-
-      <div class="grid" id="main-grid">
-        <%= yield %>
-      </div>
-
-      <footer class="grid">
-        <div>
-          <h2>this is the footer</h2>
-        </div>
-      </footer>
+      <%= yield %>
     </div>
+
+    <footer class="grid">
+      <div class="column col-2-of-4">
+        <h4>&copy;Edd Williams 2017</h4>
+      </div>
+      <div class="column col-2-of-4 social-icons">
+        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+        <i class="fa fa-twitter" aria-hidden="true"></i>
+      </div>
+    </footer>
   </body>
 </html>

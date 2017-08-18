@@ -1,0 +1,16 @@
+<div id="hidden-nav">
+  <div id="nav-inner">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="#">About</a></li>
+      <!-- refactor for different users -->
+      <% if current_trader %>
+        <li><a href=<%= new_trader_proposition_path(current_trader.id) %>>Create Proposition</a></li>
+        <li><a href=<%= edit_trader_registration_path %>>Edit Profile</a></li>
+      <% else %>
+        <li><a href=<%= new_trader_session_path %>>Trader Login</a></li>
+      <% end %>
+      <li><a href=<%= new_investor_session_path %>>Investor Login</a></li>
+    </ul>
+  </div>
+</div>
