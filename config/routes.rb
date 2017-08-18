@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :propositions, :only => [:index, :show] do
+    resources :comments, only: [:index, :create]
     member do
       get 'upvote'
       get 'downvote'

@@ -4,7 +4,8 @@
 
 @import 'utils'; 
 
-#main-grid { 
+#main-grid {
+  margin-bottom: 2rem; 
   .proposition {
     background-color: #D3D3D3;
     @include border-radius(5px);

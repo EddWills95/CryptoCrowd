@@ -9,6 +9,8 @@ class Proposition < ApplicationRecord
   
   belongs_to :trader
 
+  has_many :comments
+
   def total_votes
     self.votes_for.size - self.get_downvotes.size
   end
