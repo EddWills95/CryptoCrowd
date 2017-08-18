@@ -5,19 +5,26 @@ $(function() {
 
   socket.emit('SubAdd', {subs:subscription} );
 
+  var tempBtc;
+  var tempEth;
+  var tempLtc;
+
   socket.on("m", function(message){
     var unpacked = CCC.CURRENT.unpack(message);
     if(unpacked.FROMSYMBOL == "BTC"){
-      var coinbase_btc = (CCC.CURRENT.unpack(message).PRICE);
-      $('#btc-price')[0].innerHTML = coinbase_btc;
+      tempBtc = unpacked.PRICE;
     }
     if(unpacked.FROMSYMBOL == "ETH"){
-      var coinbase_btc = (CCC.CURRENT.unpack(message).PRICE);
-      $('#eth-price')[0].innerHTML = coinbase_btc;
+      tempEth = unpacked.PRICE;
     }
     if(unpacked.FROMSYMBOL == "LTC"){
-      var coinbase_btc = (CCC.CURRENT.unpack(message).PRICE);
-      $('#ltc-price')[0].innerHTML = coinbase_btc;
+      tempLtc = unpacked.PRICE;
     }
   });
+
+  setInterval(function (){
+    $('#btc-price')[0].innerHTML = tempBtc;
+    $('#eth-price')[0].innerHTML = tempEth;
+    $('#ltc-price')[0].innerHTML = tempLtc;
+  }, 2000);
 });

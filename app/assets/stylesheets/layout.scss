@@ -1,46 +1,40 @@
-header {
-  z-index: -100;
-  display: flex;
-  align-items: center;
-  background-color: lightblue;
-  margin-top: 1rem;
-  .icon {
-    margin-left: 1rem;
-  }
-  #menu {
-    text-align: left;
-    #menu-bars {
-      margin-right: 2rem;
+body {
+  header {
+    z-index: -100;
+    display: flex;
+    align-items: center;
+    background-color: lightblue;
+    margin-top: 1rem;
+    .icon {
+      margin-left: 1rem;
     }
-  }
-}
-
-#hidden-nav {
-  position: fixed;
-  right: 0;
-  width: 0;
-  height: 100%;
-  background-color: black;
-  color: white;
-  transition: 0.5s;
-  #nav-inner {
-    margin-top: 15rem;
-    ul {
-      list-style: none;
-      text-decoration: none;
-      padding: 0;
-      li {
-        // Inline Block Problem.
-        padding: 1rem;
-        border-bottom: 1px solid grey;
-        &:hover {
-          background-color: lightgrey;
-        }
+    #menu {
+      text-align: left;
+      #menu-bars {
+        margin-right: 2rem;
       }
     }
   }
-}
 
-.greyed-out {
-  opacity: 0.5;
+  .greyed-out {
+    opacity: 0.5;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    height: 4rem;
+    width: 100%;
+    background-color: black;
+    color: white;
+    .social-icons {
+      font-size: 2rem;
+      i {
+        padding: 0.5rem;
+      }
+    }
+  }
 }
