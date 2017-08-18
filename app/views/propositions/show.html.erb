@@ -2,11 +2,17 @@
 <h3><%= @proposition.trader.name %></h3>
 <p><%= @proposition.description %></p>
 
+<h2>Comments</h2>
 <div class="comment-container">
   <% @proposition.comments.each do |comment| %>
+  <div class="comment-individual" id="<%= "comment-#{comment.id}" %>">
+    <h5> 
+      <%= comment.user.name %>
+    </h5>
     <p>
       <%= comment.body %>
     </p>
+  </div>
   <% end %>
 </div>
 
@@ -16,4 +22,6 @@
 
   <%= f.label :new_comment %>
   <%= f.text_area :body %>
+
+  <%= f.submit :Publish %>
 <% end %>

@@ -11,6 +11,8 @@ When(/^they write in the comment box and press enter$/) do
 end
 
 Then(/^the comment is shown$/) do
+  # Ajax is working in reality
+  # Test is not seeing the new text objects
   expect(page).to have_content "This looks like a great idea"
 end
 
