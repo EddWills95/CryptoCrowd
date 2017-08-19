@@ -1,5 +1,5 @@
 Feature: Trader edits their profile
-  @wip
+  
   Scenario: Trader edits their profile
     Given there is a registered trader
       And the trader is logged in

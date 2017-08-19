@@ -1,0 +1,7 @@
+$('.comment-container').append(
+  $('<div/>')
+    .attr("id", "<%= "comment-#{@comment.proposition_id.to_s}" %>")
+    .addClass("comment-individual")
+    .append("<p>")
+      .text("<%= @comment.body.to_s %>")
+);

@@ -5,6 +5,7 @@ class PropositionsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @proposition = Proposition.find(params[:id])
   end
 

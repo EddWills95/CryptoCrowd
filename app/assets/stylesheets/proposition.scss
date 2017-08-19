@@ -1,3 +1,15 @@
 // Place all the styles related to the Proposition controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-container {
+  .comment-individual {
+    display: flex;
+    align-content: center;
+    margin: 0.5rem;
+    background-color: lightgrey;
+    p {
+      margin-left: 0.5rem;
+    }
+  }
+}

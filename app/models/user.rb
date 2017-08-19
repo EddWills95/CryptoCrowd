@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   has_one :wallet
 
+  has_many :comments
+
   def create_wallet
     Wallet.create!(user: self)
   end

@@ -1,3 +1,27 @@
 <h1><%= @proposition.title %></h1>
 <h3><%= @proposition.trader.name %></h3>
 <p><%= @proposition.description %></p>
+
+<h2>Comments</h2>
+<div class="comment-container">
+  <% @proposition.comments.each do |comment| %>
+  <div class="comment-individual" id="<%= "comment-#{comment.id}" %>">
+    <h5> 
+      <%= comment.user.name %>
+    </h5>
+    <p>
+      <%= comment.body %>
+    </p>
+  </div>
+  <% end %>
+</div>
+
+<%= form_for @comment, :url => proposition_comments_path(@proposition), remote: true do |f| %>
+  
+  <%= f.hidden_field :proposition_id, :value => @proposition.id %>
+
+  <%= f.label :new_comment %>
+  <%= f.text_area :body %>
+
+  <%= f.submit :Publish %>
+<% end %>
