@@ -1,0 +1,12 @@
+<table>
+  <% @user.wallet.list.each do |sym, val| %>
+  <tr>
+    <td>
+      <%= "#{sym.upcase}: " %>
+    </td>
+      <%= val %>
+    <td>
+    </td>
+  </tr>
+  <% end %>
+</table>
