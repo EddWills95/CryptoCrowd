@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   devise_for :traders
   
   resources :traders, only: [:index, :show] do 
+    resources :wallet, only: [:index]
     resources :propositions 
+  end
+
+  resources :investors, only: [:index, :show] do
+    resources :wallet, only: [:index]
   end
 
   resources :propositions, :only => [:index, :show] do
