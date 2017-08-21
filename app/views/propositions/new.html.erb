@@ -15,6 +15,10 @@
     <%= f.text_area :description %>
   </fieldset>
   <fieldset>
+    <%= f.label :trade %>
+    <%= f.select :trade, (1..30).inject([]) { |array, int| array << [int] } %>
+  </fieldset>
+  <fieldset>
     <%= f.label :expire %>
     <%= f.select :expire, (1..30).inject([]) { |array, int| array << [int] } %>
   </fieldset>

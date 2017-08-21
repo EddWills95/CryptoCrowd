@@ -36,6 +36,10 @@ When(/^they fill in the description$/) do
   fill_in 'Description', :with => "Bitcoin to the moooooooooo00nn"
 end
 
+When(/^they select trade time$/) do
+  select '5', :from => 'proposition[trade]'
+end
+
 When(/^they select expiry time$/) do
   select '7', :from => 'proposition[expire]'
 end
