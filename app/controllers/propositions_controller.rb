@@ -11,7 +11,10 @@ class PropositionsController < ApplicationController
 
   def create
     @trader = Trader.find(params[:trader_id])
-    @proposition = @trader.propositions.new(create_params)
+    @altered_params = create_params
+    @altered_params[:expire] = DateTime.now + (params[:proposition][:expire].to_i).days
+    @altered_params[:trade] = DateTime.now + (params[:proposition][:trade].to_i).days
+    @proposition = @trader.propositions.new(@altered_params)
     if @proposition.save 
       redirect_to '/'
     else
@@ -36,7 +39,8 @@ class PropositionsController < ApplicationController
   def create_params
     params.require(:proposition).permit(:title, 
       :currency1_id, :currency2_id, :description,
-      :currency_to_id, :currency_from_id)
+      :currency_to_id, :currency_from_id,
+      :trade, :expire)
   end
 
 end

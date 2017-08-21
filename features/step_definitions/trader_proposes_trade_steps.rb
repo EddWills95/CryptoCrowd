@@ -37,11 +37,11 @@ When(/^they fill in the description$/) do
 end
 
 When(/^they select trade time$/) do
-  select '5', :from => 'proposition[trade]'
+  select '5', :from => 'proposition_trade'
 end
 
 When(/^they select expiry time$/) do
-  select '7', :from => 'proposition[expire]'
+  select '7', :from => 'proposition_expire'
 end
 
 When(/^they click submit$/) do
