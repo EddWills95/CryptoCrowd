@@ -36,6 +36,10 @@ When(/^they fill in the description$/) do
   fill_in 'Description', :with => "Bitcoin to the moooooooooo00nn"
 end
 
+When(/^they select expiry time$/) do
+  select '7', :from => 'proposition[expire]'
+end
+
 When(/^they click submit$/) do
   click_on 'Propose'
 end

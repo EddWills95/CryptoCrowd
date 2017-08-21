@@ -1,6 +1,6 @@
 Feature: A trader proposition
   
-  @javascript
+  @wip @javascript
   Scenario: A trader proposes a trade for investors
     Given there is a registered trader
       And the trader is logged in
@@ -12,6 +12,7 @@ Feature: A trader proposition
     When they fill in the title
       And they select the currency pair
       And they fill in the description
+      And they select expiry time
       And they click submit
     Then they have a new proposition
 

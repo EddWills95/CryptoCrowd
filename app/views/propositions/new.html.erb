@@ -14,5 +14,9 @@
     <%= f.label :description %>
     <%= f.text_area :description %>
   </fieldset>
+  <fieldset>
+    <%= f.label :expire %>
+    <%= f.select :expire, (1..30).inject([]) { |array, int| array << [int] } %>
+  </fieldset>
   <%= f.submit "Propose" %>
 <% end %>
