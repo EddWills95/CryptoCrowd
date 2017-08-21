@@ -60,6 +60,8 @@ RSpec.describe Proposition, type: :model do
       # .future? can't seem to be stubbed?!
       # expect(@proposition.expire.future?).to eq(true)
       expect(@proposition.active?).to eq(false)
+
+      expect(@proposition.price_at_trade).to eq("something")
     end
   end
 
