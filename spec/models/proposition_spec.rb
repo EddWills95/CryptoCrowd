@@ -8,13 +8,13 @@ RSpec.describe Proposition, type: :model do
     @trader = Trader.create!(email: "someone@somewhere.com", name: "Max Keiser", password: "password", password_confirmation: "password")
     
     # Set up proposition with trade and expire times
-    @temp_date = DateTime.new(2017, 01, 01)
+    @temp_date = DateTime.now
     @proposition = Proposition.create!(
       title: "buy", description: "please", 
       currency_to_id: @currency1.id, currency_from_id: @currency2.id, 
       trader_id: @trader.id,
-      expire: @temp_date + 7.days,
-      trade: @temp_date + 5.days
+      trade: @temp_date + 2.second,
+      expire: @temp_date + 3.second 
     )
   end
   
@@ -54,14 +54,21 @@ RSpec.describe Proposition, type: :model do
       @proposition.created_at = @temp_date
     end
 
-    it "executes the trade and makes proposition inactive" do
+    it "executes the trade" do
       allow(DateTime).to receive(:now).and_return(@time_now)
-      
+
+      sleep(5)
+      expect(@proposition.price_at_trade).to eq("something")
+
+      # expect(@proposition.price_at_expire).to eq("something else")
+
       # .future? can't seem to be stubbed?!
       # expect(@proposition.expire.future?).to eq(true)
-      expect(@proposition.active?).to eq(false)
 
-      expect(@proposition.price_at_trade).to eq("something")
+      # expect(@proposition.active?).to eq(false)
+
+      
+
     end
   end
 
