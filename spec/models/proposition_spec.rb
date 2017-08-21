@@ -26,6 +26,19 @@ RSpec.describe Proposition, type: :model do
     end
   end
 
+  describe "expiration" do
+    before do
+      temp_date = DateTime.new(2017, 07, 06)
+      @proposition.expire = temp_date + 7.days 
+      # strange octal error here.
+      @proposition.created_at = temp_date
+    end
+
+    it "should change the active state" do 
+      expect(@proposition.expire.future?).to eq(false)
+    end
+  end
+
 end
 
 

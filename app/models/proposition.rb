@@ -14,4 +14,5 @@ class Proposition < ApplicationRecord
   def total_votes
     self.votes_for.size - self.get_downvotes.size
   end
+
 end
