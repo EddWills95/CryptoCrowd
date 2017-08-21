@@ -6,7 +6,16 @@ RSpec.describe Proposition, type: :model do
     @currency2 = Currency.create!(name: "USD")
     @investor = Investor.create!(email: "investor@money.org", name: "Charles Xavier", password: "password", password_confirmation: "password")
     @trader = Trader.create!(email: "someone@somewhere.com", name: "Max Keiser", password: "password", password_confirmation: "password")
-    @proposition = Proposition.create!(title: "buy", description: "please", currency_to_id: @currency1.id, currency_from_id: @currency2.id, trader_id: @trader.id)
+    
+    # Set up proposition with trade and expire times
+    @temp_date = DateTime.new(2017, 01, 01)
+    @proposition = Proposition.create!(
+      title: "buy", description: "please", 
+      currency_to_id: @currency1.id, currency_from_id: @currency2.id, 
+      trader_id: @trader.id,
+      expire: @temp_date + 7.days,
+      trade: @temp_date + 5.days
+    )
   end
   
   describe "references two currencies" do
@@ -40,13 +49,11 @@ RSpec.describe Proposition, type: :model do
   end
 
   describe "trade execution" do
-    before do
-      @temp_date = DateTime.new(2017, 01, 01)
+    before do 
       @time_now = DateTime.new(2017, 01, 07)
-      @proposition.expire = @temp_date + 7.days
-      @proposition.trade = @temp_date + 5.days 
       @proposition.created_at = @temp_date
     end
+
     it "executes the trade and makes proposition inactive" do
       allow(DateTime).to receive(:now).and_return(@time_now)
       
