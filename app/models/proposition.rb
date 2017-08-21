@@ -15,4 +15,8 @@ class Proposition < ApplicationRecord
     self.votes_for.size - self.get_downvotes.size
   end
 
+  def active?
+    self.expire < DateTime.now ? true : false
+  end
+
 end

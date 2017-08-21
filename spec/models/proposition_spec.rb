@@ -39,6 +39,23 @@ RSpec.describe Proposition, type: :model do
     end
   end
 
+  describe "trade execution" do
+    before do
+      @temp_date = DateTime.new(2017, 01, 01)
+      @time_now = DateTime.new(2017, 01, 07)
+      @proposition.expire = @temp_date + 7.days
+      @proposition.trade = @temp_date + 5.days 
+      @proposition.created_at = @temp_date
+    end
+    it "executes the trade and makes proposition inactive" do
+      allow(DateTime).to receive(:now).and_return(@time_now)
+      
+      # .future? can't seem to be stubbed?!
+      # expect(@proposition.expire.future?).to eq(true)
+      expect(@proposition.active?).to eq(false)
+    end
+  end
+
 end
 
 
