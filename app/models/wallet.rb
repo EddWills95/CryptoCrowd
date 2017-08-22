@@ -10,7 +10,7 @@ class Wallet < ApplicationRecord
     @available = []
     self.list.each do |cur, val| 
       unless val === nil
-        @available << [cur]
+        @available << [cur, "#{cur.upcase}: #{val}"]
       end
     end
     return @available

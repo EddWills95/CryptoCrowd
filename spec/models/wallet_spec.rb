@@ -11,7 +11,7 @@ RSpec.describe Wallet, type: :model do
     end
   
     it "should return an array of currencies with value" do
-      expect(@investor.wallet.available).to eq([["btc"]])
+      expect(@investor.wallet.available).to eq([["btc", "BTC: 0.00432"]])
     end 
   end
 end
