@@ -13,8 +13,8 @@
         <li><a href=<%#= investor_wallet_index_path(@investor.id) %>>Wallet</a></li>
         <li><%= link_to('Logout', destroy_investor_session_path, method: :delete) %> </li>
       <% else %>  
-        <li><a href=<%= new_investor_session_path %>>Investor Login</a></li>
-        <li><a href=<%= new_trader_session_path %>>Trader Login</a></li>
+        <li><a href=<%= new_investor_session_path %>>Investor Login/SignUp</a></li>
+        <li><a href=<%= new_trader_session_path %>>Trader Login/SignUp</a></li>
       <% end %>
     </ul>
   </div>
