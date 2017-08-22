@@ -1,4 +1,6 @@
 class PropositionsController < ApplicationController
+  before_action :find_user
+ 
   def new
     @trader = Trader.find(current_trader.id)
     @proposition = Proposition.new
@@ -7,6 +9,7 @@ class PropositionsController < ApplicationController
   def show
     @comment = Comment.new
     @proposition = Proposition.find(params[:id])
+    @pledge = Pledge.new(proposition: @proposition, user: @user)
   end
 
   def create
@@ -37,6 +40,10 @@ class PropositionsController < ApplicationController
     params.require(:proposition).permit(:title, 
       :currency1_id, :currency2_id, :description,
       :currency_to_id, :currency_from_id)
+  end
+
+  def find_user
+    @user = current_trader || current_investor
   end
 
 end

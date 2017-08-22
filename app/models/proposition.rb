@@ -11,6 +11,8 @@ class Proposition < ApplicationRecord
 
   has_many :comments
 
+  has_many :pledges
+
   def total_votes
     self.votes_for.size - self.get_downvotes.size
   end
