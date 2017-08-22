@@ -8,15 +8,23 @@ $(function() {
   menuLines.push(document.getElementsByClassName('bar3')[0]);
 
   $("#menu-bars").on("click", function() {
-    menuAnimate(this);
+    var bars = this;
+    menuAnimate(bars);
     if(state == "closed") {
       state = "open"; 
-      moveNav("white", "25%"); 
+      moveNav("white", "25%");
+      $("#main-grid").one("click", function(e) {
+        if(state == "open") {
+          menuAnimate(bars);
+          state = "closed";
+          moveNav("black", "0");
+        } 
+      });
     } else {
       state = "closed";
       moveNav("black", "0");
     }
-  })
+  });
 
   function moveNav(color, width) {
     document.getElementById('hidden-nav').style.width = width; 
