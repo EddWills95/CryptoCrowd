@@ -9,37 +9,22 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
 
-  <body class="grid">
+  <body id="container" class="grid">
     <% if current_investor %>
       <%= hidden_field_tag :current_id, current_investor.id %>
     <% end %>
     <% if current_trader %>
       <%= hidden_field_tag :current_id, current_trader.id %>
     <% end %>
-    
-    <!-- N.B. refactor into partials -->
+  
     <%= render "layouts/hidden-nav" %>
-
+    
     <header class="grid" style="margin-top: 1rem;">
       <div class="column col-2-of-4 icon">
         <h1><a href="/">CryptoCrowd</a></h1>
       </div>
       <div class="column col-2-of-4" id="menu">
-        <div class="ticker">
-          <h4>$<span id="btc-price"></span></h4>
-          <h5>BTC</h5>
-          <p>(CoinBase)</p>
-        </div>
-        <div class="ticker">
-          <h4>$<span id="eth-price"></span></h4>
-          <h5>ETH</h5>
-          <p>(CoinBase)</p>
-        </div>
-        <div class="ticker">
-          <h4>$<span id="ltc-price"></span></h4>
-          <h5>LTC</h5>
-          <p>(CoinBase)</p>
-        </div>
+        <%= render "layouts/tickers" %>
         <div id="menu-bars">
           <div class="bar1"></div>
           <div class="bar2"></div>
@@ -52,16 +37,9 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
+      <%= render_now %>
     </div>
 
-    <footer class="grid">
-      <div class="column col-2-of-4">
-        <h4>&copy;Edd Williams 2017</h4>
-      </div>
-      <div class="column col-2-of-4 social-icons">
-        <i class="fa fa-facebook-official" aria-hidden="true"></i>
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-      </div>
-    </footer>
+    <%= render "layouts/footer" %>
   </body>
 </html>

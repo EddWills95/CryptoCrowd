@@ -17,9 +17,11 @@
         </div>
       </div>
       <div class="column col-1-of-8 proposition-voting">
-        <i class="fa fa-arrow-up vote-button"  id="upvote-<%= prop.id %>" aria-hidden="true"></i>
-          <p>Votes: <span id=<%="votecount-#{prop.id}"%>><%= prop.total_votes ? prop.total_votes : 0 %></span></p>
-        <i class="fa fa-arrow-down vote-button" id="downvote-<%= prop.id %>" aria-hidden="true"></i>
+        <%= render_later "proposition-id#{prop.id}" do %>
+          <i class="fa fa-arrow-up vote-button"  id="upvote-<%= prop.id %>" aria-hidden="true"></i>
+            <p>Votes: <span id=<%="votecount-#{prop.id}"%>><%= prop.total_votes ? prop.total_votes : 0 %></span></p>
+          <i class="fa fa-arrow-down vote-button" id="downvote-<%= prop.id %>" aria-hidden="true"></i>
+        <% end %>
       </div>
     </div>
   <% end %>

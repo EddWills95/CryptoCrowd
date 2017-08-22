@@ -3,21 +3,18 @@
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="#">About</a></li>
-      <!-- refactor for different users -->
-      <% if current_trader %>
+      <% if trader_signed_in? %>
         <li><a href=<%= new_trader_proposition_path(current_trader.id) %>>Create Proposition</a></li>
         <li><a href=<%= edit_trader_registration_path %>>Edit Profile</a></li>
         <li><a href=<%= trader_wallet_index_path(current_trader.id) %>>Wallet</a></li>
         <li><%= link_to('Logout', destroy_trader_session_path, method: :delete) %></li>
-      <% else %>
-        <li><a href=<%= new_trader_session_path %>>Trader Login</a></li>!!!
-      <% end %>
-      <% if current_investor %>
+      <% elsif investor_signed_in? %>
         <li><a href=<%= edit_investor_registration_path %>>Edit Profile</a></li>
-        <li><a href=<%= investor_wallet_index_path(current_investor.id) %>>Wallet</a></li>
+        <li><a href=<%#= investor_wallet_index_path(@investor.id) %>>Wallet</a></li>
         <li><%= link_to('Logout', destroy_investor_session_path, method: :delete) %> </li>
       <% else %>  
         <li><a href=<%= new_investor_session_path %>>Investor Login</a></li>
+        <li><a href=<%= new_trader_session_path %>>Trader Login</a></li>
       <% end %>
     </ul>
   </div>
