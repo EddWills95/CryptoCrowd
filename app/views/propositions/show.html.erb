@@ -3,7 +3,11 @@
 <h3><%= @proposition.trader.name %></h3>
 <p><%= @proposition.description %></p>
 
-<p>Trade Time: <%= @proposition.trade %></p>
+<% if @proposition.traded? %>
+  <p>Trade has been executed</p>
+<% else %>
+  <p>Trade Time: <%= @proposition.trade %></p>
+<% end %>
 <p>Expire Time: <%= @proposition.expire %></p>
 
 <% if @user %>
