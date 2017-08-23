@@ -43,7 +43,7 @@ class PropositionsController < ApplicationController
     params.require(:proposition).permit(:title, 
       :currency1_id, :currency2_id, :description,
       :currency_to_id, :currency_from_id,
-      :trade, :expire)
+      :trade, :expire, :order_type)
   end
 
   def find_user

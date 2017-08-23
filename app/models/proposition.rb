@@ -5,6 +5,7 @@ class Proposition < ApplicationRecord
 
   validate :time_span
   validate :different_currencies
+  validates :order_type, presence: true
 
   belongs_to :currency_to, :class_name => "Currency"
   belongs_to :currency_from, :class_name => "Currency"
