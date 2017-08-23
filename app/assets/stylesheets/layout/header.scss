@@ -1,0 +1,17 @@
+body {
+  header {
+    display: flex;
+    align-items: center;
+    background-color: lightblue;
+    margin-top: 1rem;
+    .icon {
+      margin-left: 1rem;
+    }
+    #menu {
+      text-align: left;
+      #menu-bars {
+        margin-right: 2rem;
+      }
+    }
+  }
+}

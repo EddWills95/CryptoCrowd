@@ -3,9 +3,7 @@
 
 #menu-bars {
   z-index: 1000;
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
+  margin-left: 3rem;
   display: inline-block;
   cursor: pointer;
   .bar1, .bar2, .bar3 {
