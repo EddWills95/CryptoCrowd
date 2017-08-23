@@ -1,3 +1,18 @@
+<h1><%= @proposition.title %></h1>
+<h3><%= @proposition.trader.name %></h3>
+<p><%= @proposition.description %></p>
+
+<% if @proposition.traded? %>
+  <p>Trade has been executed</p>
+<% else %>
+  <p>Trade Time: <%= @proposition.trade %></p>
+<% end %>
+<% if @proposition.active? %>
+  <p>Trade has expired</p>
+<% else %>
+  <p>Expire Time: <%= @proposition.expire %></p>
+<% end %>
+
 <article class="proposition-page-container"> 
   <div class="grid">
     <div class="column col-1-of-4 proposition-page-info">
@@ -10,7 +25,7 @@
   <div class="proposition-page-description">
     <p><%= @proposition.description %></p>
   </div>
-  <% if @trader || @investor %>
+  <% if @user && @proposition.traded? == false %>
     <div id="pledge-details">
       <%= form_for @pledge, :url => investor_pledges_path(@user.id) do |f| %>
         <%= hidden_field :proposition_id, nil, :value => @proposition.id %>
@@ -22,6 +37,7 @@
       <% end %>
     </div>
   <% end %>
+
 
   <h2>Comments</h2>
   <div class="comment-container">
