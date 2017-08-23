@@ -12,7 +12,7 @@ class Trader < User
 
     @good_trades = self.propositions.where(success: true)
 
-    @success = (@good_trades.count / self.propositions.count) * 100
+    @success = (@good_trades.count.to_f / self.propositions.count) * 100
   end
 
 end
