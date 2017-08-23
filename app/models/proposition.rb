@@ -27,6 +27,9 @@ class Proposition < ApplicationRecord
     self.price_at_trade = @result["#{self.currency_to}"]
   end
 
+  has_many :pledges
+
+
   def total_votes
     self.votes_for.size - self.get_downvotes.size
   end
