@@ -18,7 +18,9 @@ class PropositionsController < ApplicationController
     @altered_params[:expire] = DateTime.now + (params[:proposition][:expire].to_i).days
     @altered_params[:trade] = DateTime.now + (params[:proposition][:trade].to_i).days
     @proposition = @trader.propositions.new(@altered_params)
-    if @proposition.save 
+    if @proposition.save
+      @proposition.delay(:run_at => @proposition.trade).get_trade_price
+      binding.pry
       redirect_to '/'
     else
       flash[:alert] = "Error, Try Again!!"

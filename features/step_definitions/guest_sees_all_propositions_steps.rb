@@ -6,8 +6,8 @@ Given(/^there are some propositions$/) do
     title: "Buy!!", description: "please", 
     currency_to_id: @currency1.id, currency_from_id: @currency2.id, 
     trader_id: @trader.id,
-    trade: DateTime.now + 5.days,
-    expire: DateTime.now + 7.days,
+    trade: DateTime.now + 1.seconds,
+    expire: DateTime.now + 2.seconds,
     )
 end
 

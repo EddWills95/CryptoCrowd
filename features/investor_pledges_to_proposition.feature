@@ -1,6 +1,6 @@
 Feature: An investor pledges
   
-  @wip @javascript
+  @javascript
   Scenario: An investor pledges some money from their wallet to a proposition
     Given there is a registered investor
       And the investor is logged in

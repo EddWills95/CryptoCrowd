@@ -11,7 +11,7 @@ RSpec.describe Proposition, type: :model do
     @temp_date = DateTime.now
     @proposition = Proposition.create!(
       title: "buy", description: "please", 
-      currency_to_id: @currency1.id, currency_from_id: @currency2.id, 
+      currency_to_id: @currency2.id, currency_from_id: @currency1.id, 
       trader_id: @trader.id,
       trade: @temp_date + 2.second,
       expire: @temp_date + 3.second 
@@ -20,8 +20,8 @@ RSpec.describe Proposition, type: :model do
   
   describe "references two currencies" do
     it "should have access to the currency name" do
-      expect(@proposition.currency_to.name).to eq("BTC")
-      expect(@proposition.currency_from.name).to eq("USD")
+      expect(@proposition.currency_to.name).to eq("USD")
+      expect(@proposition.currency_from.name).to eq("BTC")
     end
   end
 
@@ -45,30 +45,6 @@ RSpec.describe Proposition, type: :model do
 
     it "should change the active state" do 
       expect(@proposition.expire.future?).to eq(false)
-    end
-  end
-
-  describe "trade execution" do
-    before do 
-      @time_now = DateTime.new(2017, 01, 07)
-      @proposition.created_at = @temp_date
-    end
-
-    it "executes the trade" do
-      allow(DateTime).to receive(:now).and_return(@time_now)
-
-      sleep(5)
-      expect(@proposition.price_at_trade).to eq("something")
-
-      # expect(@proposition.price_at_expire).to eq("something else")
-
-      # .future? can't seem to be stubbed?!
-      # expect(@proposition.expire.future?).to eq(true)
-
-      # expect(@proposition.active?).to eq(false)
-
-      
-
     end
   end
 

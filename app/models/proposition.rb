@@ -12,23 +12,33 @@ class Proposition < ApplicationRecord
   belongs_to :trader
 
   has_many :comments
-
-  after_create :timer
-
-  def timer
-    binding.pry
-    delay(:run_at => trade).get_trade_price
-   # delay(:run_at => expire).get_expire_price
-  end
-
-  def get_trade_price
-    @uri = URI("https://min-api.cryptocompare.com/data/price?fsym=#{self.currency_to.name}&tsyms=#{self.currency_from.name}")
-    @result = JSON.parse(Net::HTTP.get(@uri))
-    self.price_at_trade = @result["#{self.currency_to}"]
-  end
-
   has_many :pledges
 
+  def successful
+    # this only assumes we want to the price to go up
+    if get_trade_price < get_expire_price
+      self.success = true
+    else
+      self.success = false
+    end
+    self.save     
+  end
+ 
+  def get_trade_price
+    uri = URI("https://min-api.cryptocompare.com/data/pricehistorical?fsym=#{self.currency_from.name}&tsyms=#{self.currency_to.name}&ts=#{self.trade.to_time.to_i}")
+    result = JSON.parse(Net::HTTP.get(uri))
+    price = result["#{self.currency_from.name}"]["#{self.currency_to.name}"]
+    self.update_attribute(:price_at_trade, price)
+    price
+  end
+
+  def get_expire_price
+    uri = URI("https://min-api.cryptocompare.com/data/pricehistorical?fsym=#{self.currency_from.name}&tsyms=#{self.currency_to.name}&ts=#{self.expire.to_time.to_i}")
+    result = JSON.parse(Net::HTTP.get(uri))
+    price = result["#{self.currency_from.name}"]["#{self.currency_to.name}"]
+    self.update_attribute(:price_at_expire, price)
+    price
+  end
 
   def total_votes
     self.votes_for.size - self.get_downvotes.size
