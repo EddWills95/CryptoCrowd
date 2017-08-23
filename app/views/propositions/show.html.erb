@@ -48,8 +48,8 @@
   <% end %>
 
   <script type="text/javascript">
-    var curTo = "<%= @proposition.currency_from.name %>";
-    var curFrom = "<%= @proposition.currency_to.name %>";
+    var curFrom = "<%= @proposition.currency_from.name %>";
+    var curTo = "<%= @proposition.currency_to.name %>";
     baseUrl = "https://widgets.cryptocompare.com/";
     var scripts = document.getElementsByTagName("script");
     var embedder = scripts[ scripts.length - 1 ];
