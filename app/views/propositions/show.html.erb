@@ -8,7 +8,11 @@
 <% else %>
   <p>Trade Time: <%= @proposition.trade %></p>
 <% end %>
-<p>Expire Time: <%= @proposition.expire %></p>
+<% if @proposition.active? %>
+  <p>Trade has expired</p>
+<% else %>
+  <p>Expire Time: <%= @proposition.expire %></p>
+<% end %>
 
 <% if @user %>
   <div id="pledge-details">

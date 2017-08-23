@@ -20,5 +20,8 @@ Then(/^they see the time till expiry$/) do
   expect(page).to have_content "Expire Time:"
 end
 
+Then(/^they see a trade expired message$/) do
+  expect(page).to have_content "Trade has expired"
+end
 
 
