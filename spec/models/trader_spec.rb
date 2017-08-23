@@ -15,21 +15,23 @@ RSpec.describe Trader, type: :model do
         currency_to_id: @currency2.id, currency_from_id: @currency1.id, 
         trader_id: @trader.id,
         trade: @temp_date + 2.days,
-        expire: @temp_date + 10.days 
+        expire: @temp_date + 10.days,
+        order_type: "buy" 
       )
       @proposition2 = Proposition.create!(
-        title: "buy", description: "pleaseasdf", 
+        title: "sell", description: "pleaseasdf", 
         currency_to_id: @currency2.id, currency_from_id: @currency1.id, 
         trader_id: @trader.id,
         trade: @temp_date + 2.days,
-        expire: @temp_date + 10.days 
+        expire: @temp_date + 10.days,
+        order_type: "sell" 
       )
     end
 
 
     it "should return the trader performance" do
-      
-      expect(@trader.performance).to eq(100)
+
+      expect(@trader.performance).to eq(50)
 
     end
   end
