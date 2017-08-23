@@ -27,6 +27,10 @@ When(/^they fill in the title$/) do
   fill_in 'Title', :with => "BUY ALL THE BITCOIN"
 end
 
+When(/^they select buy or sell$/) do
+  select 'Buy', :from => 'proposition[order_type]'
+end
+
 When(/^they select the currency pair$/) do
   select 'USD', :from => 'proposition[currency_to_id]'
   select 'BTC', :from => 'proposition[currency_from_id]'

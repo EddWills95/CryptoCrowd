@@ -1,5 +1,5 @@
 Feature: A trader proposition
-  
+  @wip
   Scenario: A trader proposes a trade for investors
     Given there is a registered trader
       And the trader is logged in
@@ -9,6 +9,7 @@ Feature: A trader proposition
       And they click on propose
     Then they are taken to the proposition page
     When they fill in the title
+      And they select buy or sell
       And they select the currency pair
       And they fill in the description
       And they select trade time
