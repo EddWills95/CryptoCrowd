@@ -6,3 +6,4 @@ Feature: User visits trader page
     When they click on a trader name
     Then they go to the trader's page
       And they see the name of the trader
+      And they see the performance of the trader

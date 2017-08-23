@@ -10,3 +10,7 @@ Then(/^they see the name of the trader$/) do
   expect(page).to have_content "Max Keiser"
 end
 
+Then(/^they see the performance of the trader$/) do
+  expect(page).to have_content "Average Performance: 0.0%"
+end
+
