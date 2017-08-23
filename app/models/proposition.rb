@@ -16,11 +16,18 @@ class Proposition < ApplicationRecord
   has_many :pledges
 
   def successful
-    # this only assumes we want to the price to go up
-    if get_trade_price < get_expire_price
-      self.success = true
-    else
-      self.success = false
+    if self.order_type === "buy"
+      if get_trade_price < get_expire_price
+        self.success = true
+      else
+        self.success = false
+      end
+    else 
+      if get_trade_price > get_expire_price
+        self.success = true
+      else
+        self.success = false
+      end
     end
     self.save     
   end
