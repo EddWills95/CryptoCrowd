@@ -1,4 +1,3 @@
-
 <h1><%= @proposition.title %></h1>
 <h3><%= @proposition.trader.name %></h3>
 <p><%= @proposition.description %></p>
@@ -14,19 +13,6 @@
   <p>Expire Time: <%= @proposition.expire %></p>
 <% end %>
 
-<% if @user %>
-  <div id="pledge-details">
-    <%= form_for @pledge, :url => investor_pledges_path(@user.id) do |f| %>
-      <%= hidden_field :proposition_id, nil, :value => @proposition.id %>
-      <%= f.label :currency %>
-      <%= select_tag :pledge_currency, options_for_select(@user.wallet.available) %>
-      <%= f.label :amount %>
-      <%= number_field :pledge_amount, nil,  step: :any  %>
-      <%= f.submit :CreatePledge %>
-    <% end %>
-  </div>
-<% end %>
-
 <article class="proposition-page-container"> 
   <div class="grid">
     <div class="column col-1-of-4 proposition-page-info">
@@ -39,7 +25,7 @@
   <div class="proposition-page-description">
     <p><%= @proposition.description %></p>
   </div>
-  <% if @trader || @investor %>
+  <% if @user && @proposition.traded? == false %>
     <div id="pledge-details">
       <%= form_for @pledge, :url => investor_pledges_path(@user.id) do |f| %>
         <%= hidden_field :proposition_id, nil, :value => @proposition.id %>
