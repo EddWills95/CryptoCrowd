@@ -1,6 +1,5 @@
 Feature: Proposition Expires
   
-  @wip
   Scenario: A User sees the remaining times on a proposition
   Given there are some propositions
   When they are on a proposition page
