@@ -21,7 +21,7 @@ User.delete_all
 @investor = Investor.create!(email: "investor@money.org", name: "Charles Xavier", password: "password", password_confirmation: "password")
 @investor.skip_confirmation!
 @investor.wallet.update(btc: 23, eth: 265.52, ltc: 2532)
-@investor.confirm
+Investor.first.confirm
 
 @trader = Trader.create!(email: "someone@somewhere.com", name: "Max Keiser", password: "password", password_confirmation: "password")
 @trader.skip_confirmation!
