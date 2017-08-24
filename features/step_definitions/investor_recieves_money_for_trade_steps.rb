@@ -13,6 +13,6 @@ When(/^the proposition is successful$/) do
 end
 
 Then(/^they see an increase in their funds$/) do
-  expect(@investor.wallet.btc).to eq()
+  expect(@investor.wallet.btc).to eq(3.42556)
 end
 
