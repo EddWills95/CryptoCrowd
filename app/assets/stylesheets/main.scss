@@ -2,13 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import 'utils'; 
+@import 'utils';
+@import 'colours'; 
 
 #main-grid {
-  margin-bottom: 2rem; 
+  background-color: $color1;
+  margin-bottom: 2rem;
+  width:100%; 
   .proposition {
     margin: 1rem;
-    background-color: #D3D3D3;
+    background-color: $color4;
     @include border-radius(5px);
     display: flex;
     align-items: center;
@@ -51,6 +54,25 @@
         font-size: 30px;
       }
     }
+  }
+}
 
+@media screen and (max-width: 700px) {
+  #main-grid {
+    .proposition {
+      .proposition-info {
+        .proposition-text {
+          h1 {
+            width: 100%;
+          }
+          p {
+            width: 10rem;
+          }
+          .currency-pair {
+            display:none;
+          }
+        }
+      }
+    }
   }
 }

@@ -1,5 +1,10 @@
+@import 'colours';
+
 html {
   height: 100%;
+  body {
+    background-color: $color1;
+  }
 }
 
 body {

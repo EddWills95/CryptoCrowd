@@ -51,14 +51,16 @@
       </p>
     </div>
     <% end %>
-    <%= form_for @comment, :url => proposition_comments_path(@proposition), remote: true do |f| %>
-      
-      <%= f.hidden_field :proposition_id, :value => @proposition.id %>
+    <% if @user %>
+      <%= form_for @comment, :url => proposition_comments_path(@proposition), remote: true do |f| %>
+        
+        <%= f.hidden_field :proposition_id, :value => @proposition.id %>
 
-      <%= f.label :new_comment %>
-      <%= f.text_area :body %>
+        <%= f.label :new_comment %>
+        <%= f.text_area :body %>
 
-      <%= f.submit :Publish %>
+        <%= f.submit :Publish %>
+      <% end %>
     <% end %>
   </div>
   
