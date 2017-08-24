@@ -11,6 +11,6 @@ Then(/^they see the name of the trader$/) do
 end
 
 Then(/^they see the performance of the trader$/) do
-  expect(page).to have_content "Average Performance: 0.0%"
+  expect(page).to have_content "Average Performance: 100.0%"
 end
 
