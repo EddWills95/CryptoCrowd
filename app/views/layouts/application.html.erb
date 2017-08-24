@@ -3,13 +3,13 @@
   <head>
     <title>CryptoCrowd</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
-
-  <body id="container" class="grid">
+  <body class="grid">
     <% if current_investor %>
       <%= hidden_field_tag :current_id, current_investor.id %>
     <% end %>

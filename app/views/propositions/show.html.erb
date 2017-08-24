@@ -1,6 +1,30 @@
-<h1><%= @proposition.title %></h1>
-<h3><%= @proposition.trader.name %></h3>
-<p><%= @proposition.description %></p>
+<article class="proposition-page-container"> 
+  <div class="grid center">
+    <div class="column col-1-of-4 proposition-page-info">
+      <h1><%= @proposition.title %></h1>
+      <h3><a href=<%= trader_path(@proposition.trader.id) %>><%= @proposition.trader.name %></a></h3>
+      <div id="pledge-details">
+        <% if @user && @proposition.traded? == false %>
+          <%= form_for @pledge, :url => investor_pledges_path(@user.id) do |f| %>
+            <%= hidden_field :proposition_id, nil, :value => @proposition.id %>
+            <%= f.label :currency %>
+            <%= select_tag :pledge_currency, options_for_select(@user.wallet.available) %>
+            <%= f.label :amount %>
+            <%= number_field :pledge_amount, nil,  step: :any  %>
+            <%= f.submit :CreatePledge %>
+          <% end %>
+        <% else %>
+          <p>Please login or sign up to pledge<p>
+        <% end %>
+      </div>
+    </div>
+ 
+    <div id="coin-pair-chart" class="column col-3-of-4">
+    </div>
+  <div class="proposition-page-description">
+    <p><%= @proposition.description %></p>
+  </div>
+
 
 <% if @proposition.traded? %>
   <p>Trade has been executed</p>
@@ -12,31 +36,6 @@
 <% else %>
   <p>Expire Time: <%= @proposition.expire %></p>
 <% end %>
-
-<article class="proposition-page-container"> 
-  <div class="grid">
-    <div class="column col-1-of-4 proposition-page-info">
-      <h1><%= @proposition.title %></h1>
-      <h3><a href=<%= trader_path(@proposition.trader.id) %>><%= @proposition.trader.name %></a></h3>
-    </div>
-    <div id="coin-pair-chart" class="column col-3-of-4">
-    </div>
-  </div>
-  <div class="proposition-page-description">
-    <p><%= @proposition.description %></p>
-  </div>
-  <% if @user && @proposition.traded? == false %>
-    <div id="pledge-details">
-      <%= form_for @pledge, :url => investor_pledges_path(@user.id) do |f| %>
-        <%= hidden_field :proposition_id, nil, :value => @proposition.id %>
-        <%= f.label :currency %>
-        <%= select_tag :pledge_currency, options_for_select(@user.wallet.available) %>
-        <%= f.label :amount %>
-        <%= number_field :pledge_amount, nil,  step: :any  %>
-        <%= f.submit :CreatePledge %>
-      <% end %>
-    </div>
-  <% end %>
 
 
   <h2>Comments</h2>
@@ -51,24 +50,23 @@
       </p>
     </div>
     <% end %>
+    <%= form_for @comment, :url => proposition_comments_path(@proposition), remote: true do |f| %>
+      
+      <%= f.hidden_field :proposition_id, :value => @proposition.id %>
+
+      <%= f.label :new_comment %>
+      <%= f.text_area :body %>
+
+      <%= f.submit :Publish %>
+    <% end %>
   </div>
-
-  <%= form_for @comment, :url => proposition_comments_path(@proposition), remote: true do |f| %>
-    
-    <%= f.hidden_field :proposition_id, :value => @proposition.id %>
-
-    <%= f.label :new_comment %>
-    <%= f.text_area :body %>
-
-    <%= f.submit :Publish %>
-  <% end %>
-
   <script type="text/javascript">
     var curFrom = "<%= @proposition.currency_from.name %>";
     var curTo = "<%= @proposition.currency_to.name %>";
     baseUrl = "https://widgets.cryptocompare.com/";
     var scripts = document.getElementsByTagName("script");
     var embedder = scripts[ scripts.length - 1 ];
+    var cccTheme = {"Header":{"displayFollowers":false},"Chart":{"animation":true}};
     (function (){
       var appName = encodeURIComponent(window.location.hostname);
       if(appName==""){appName="local";}

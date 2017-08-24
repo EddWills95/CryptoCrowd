@@ -18,3 +18,11 @@
 html {
   font-family: 'Noto Sans', sans-serif;
 }
+
+@media screen and (max-width) {
+  body {
+    .grid {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,5 +1,7 @@
 body {
   header {
+    width: 100%;
+    flex: 0 0 auto;
     display: flex;
     align-items: center;
     background-color: lightblue;
@@ -10,7 +12,33 @@ body {
     #menu {
       text-align: left;
       #menu-bars {
-        margin-right: 2rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 890px) {
+  body {
+    header {
+      #menu {
+        .ticker {
+          display: none;
+        }
+        #menu-bars {
+          margin-left: 6rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  body {
+    header {
+      #menu {
+        #menu-bars{
+          margin-left: 2rem;
+        }
       }
     }
   }
