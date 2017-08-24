@@ -1,5 +1,5 @@
 Feature: User visits trader page
-  
+
   Scenario: User goes to a trader's page
     Given there are some propositions
       And they are on the homepage

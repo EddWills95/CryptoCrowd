@@ -1,8 +1,12 @@
 <div id="hidden-nav">
     <div id="nav-user-info">
-      <% if trader_signed_in? || investor_signed_in? %>
-        <h2><%= @trader.name || @investor.name %></h1>
-        <h3><%= @trader.class.to_s || @investor.class.to_s %></h3>
+      <% if trader_signed_in?  %>
+        <h2><%= @trader.name %></h1>
+        <h3><%= @trader.class.to_s %></h3>
+      <% end %>
+      <% if investor_signed_in? %>
+        <h2><%= @investor.name %></h1>
+        <h3><%= @investor.class.to_s %></h3>
       <% end %>
     </div>
   <div id="nav-inner">
