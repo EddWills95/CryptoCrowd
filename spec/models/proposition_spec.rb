@@ -36,6 +36,24 @@ RSpec.describe Proposition, type: :model do
     end
   end
 
+  describe "pay_investors" do
+    before do
+      @investor.wallet.update(btc: 3.25256)
+      temp_date = DateTime.new(2017, 07, 06)
+      @proposition.expire = temp_date + 7.days 
+      # strange octal error here.
+      @proposition.created_at = temp_date
+      Pledge.create!(user_id: @investor.id, proposition_id: @proposition.id, btc_value: 1)
+      @proposition.successful
+      @proposition.pay_investors
+    end
+
+    it "should pay the investors" do
+      @investor.reload
+      expect(@investor.wallet.btc).to eq(5.03307929361169)
+    end
+  end
+
   describe "expiration" do
     before do
       @investor.wallet.update(btc: 3.25256)
@@ -48,12 +66,6 @@ RSpec.describe Proposition, type: :model do
 
     it "should change the active state" do 
       expect(@proposition.expire.future?).to eq(false)
-    end
-
-    it "should pay out investors" do
-      expect(@proposition.successful).to eq(true)
-
-      expect(@investor.wallet.btc).to eq(3.25256)
     end
   end
 
