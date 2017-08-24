@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20170823135104) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "votes", force: :cascade do |t|
+  create_table "votes", force: :cascade do |t| 
     t.string "votable_type"
     t.bigint "votable_id"
     t.string "voter_type"
