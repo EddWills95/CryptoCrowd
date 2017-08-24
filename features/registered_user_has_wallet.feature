@@ -1,6 +1,5 @@
 Feature: A registered User has a wallet of coins
   
-  @wip
   Scenario: An investor checks the amount of coins in their wallet
     Given there is a registered investor
       And the investor is logged in

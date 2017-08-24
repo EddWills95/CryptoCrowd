@@ -18,18 +18,33 @@ class Proposition < ApplicationRecord
   def successful
     if self.order_type === "buy"
       if get_trade_price < get_expire_price
+        pay_investors
         self.success = true
       else
         self.success = false
       end
     else 
       if get_trade_price > get_expire_price
+        pay_investors
         self.success = true
       else
         self.success = false
       end
     end
     self.save     
+  end
+
+  def pay_investors
+    # change / orig
+    change = ((self.price_at_trade).to_f / (self.price_at_expire).to_f)
+    @perc_change = change.to_f * 100.00
+    self.pledges.each do |pledge|
+      current = pledge.user.wallet.btc
+      investment = pledge.btc_value
+      invest_return = investment * @perc_change
+      total = current + invest_return
+      pledge.user.wallet.update(btc: total)
+    end
   end
  
   def get_trade_price
@@ -68,5 +83,4 @@ class Proposition < ApplicationRecord
   def different_currencies
     self.currency_to != self.currency_from
   end
-
 end
