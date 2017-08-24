@@ -11,8 +11,12 @@ $(function() {
     var bars = this;
     menuAnimate(bars);
     if(state == "closed") {
-      state = "open"; 
-      moveNav("white", "25%");
+      state = "open";
+      if($(window).width() < 520) {
+        moveNav("white", "35%");
+      } else {
+        moveNav("white", "25%");
+      }
       $("#main-grid").one("click", function(e) {
         if(state == "open") {
           menuAnimate(bars);
@@ -32,6 +36,7 @@ $(function() {
       menuLines[i].style.backgroundColor = color;
     } 
   }
+
 })
 
 

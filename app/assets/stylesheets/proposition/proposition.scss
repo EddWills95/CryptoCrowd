@@ -4,8 +4,13 @@
 
 .proposition-page-container {
   margin: 1rem;
+  .center {
+    margin: 0 auto;
+  }
   .proposition-page-info {
-    align-content: center;
+  }
+  #coin-pair-chart {
+    max-width: 60%;
   }
   .comment-container {
     .comment-individual {
@@ -15,6 +20,12 @@
       background-color: lightgrey;
       p {
         margin-left: 0.5rem;
+      }
+    }
+    .new_comment {
+      textarea {
+        width: 10rem;
+        height: 2rem;
       }
     }
   }
