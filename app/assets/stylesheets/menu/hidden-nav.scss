@@ -6,8 +6,13 @@
   background-color: black;
   color: white;
   transition: 0.5s;
+  #nav-user-info {
+    margin-top: 6rem;
+    text-align: right;
+    padding: 1rem; 
+  }
   #nav-inner {
-    margin-top: 15rem;
+    margin-top: 4rem;
     ul {
       list-style: none;
       text-decoration: none;
