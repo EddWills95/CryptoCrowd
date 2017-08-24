@@ -10,11 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170823135104) do
+=======
+ActiveRecord::Schema.define(version: 0) do
+>>>>>>> b9bcaa76203696242a7815ba5ffcd7936e2280ca
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "comments", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "proposition_id"
@@ -114,4 +119,6 @@ ActiveRecord::Schema.define(version: 20170823135104) do
 
   add_foreign_key "comments", "propositions"
   add_foreign_key "comments", "users"
+=======
+>>>>>>> b9bcaa76203696242a7815ba5ffcd7936e2280ca
 end
