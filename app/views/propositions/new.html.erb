@@ -4,6 +4,10 @@
     <%= f.text_field :title %>
   </fieldset>
   <fieldset>
+    <%= f.label :order_type %>
+    <%= f.select :order_type, options_for_select([['Buy','buy'],['Sell','sell']]) %>
+  </fieldset>
+  <fieldset>
     <%= f.label :currency1 %>
     <%= f.collection_select :currency_to_id, Currency.all, :id, :name %>
 
@@ -13,6 +17,14 @@
   <fieldset>
     <%= f.label :description %>
     <%= f.text_area :description %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :trade %>
+    <%= f.select :trade, (1..30).inject([]) { |array, int| array << [int] } %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :expire %>
+    <%= f.select :expire, (1..30).inject([]) { |array, int| array << [int] } %>
   </fieldset>
   <%= f.submit "Propose" %>
 <% end %>

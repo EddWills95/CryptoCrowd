@@ -27,6 +27,10 @@ When(/^they fill in the title$/) do
   fill_in 'Title', :with => "BUY ALL THE BITCOIN"
 end
 
+When(/^they select buy or sell$/) do
+  select 'Buy', :from => 'proposition[order_type]'
+end
+
 When(/^they select the currency pair$/) do
   select 'USD', :from => 'proposition[currency_to_id]'
   select 'BTC', :from => 'proposition[currency_from_id]'
@@ -34,6 +38,14 @@ end
 
 When(/^they fill in the description$/) do
   fill_in 'Description', :with => "Bitcoin to the moooooooooo00nn"
+end
+
+When(/^they select trade time$/) do
+  select '5', :from => 'proposition_trade'
+end
+
+When(/^they select expiry time$/) do
+  select '7', :from => 'proposition_expire'
 end
 
 When(/^they click submit$/) do

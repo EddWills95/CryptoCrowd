@@ -1,6 +1,6 @@
 Feature: Comment on proposition
   
-  @javascript 
+  @javascript
   Scenario: Investor Comments on a proposition
     Given there are some propositions
       And there is a registered investor

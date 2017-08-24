@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822103737) do
+ActiveRecord::Schema.define(version: 20170823135104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,21 +30,6 @@ ActiveRecord::Schema.define(version: 20170822103737) do
     t.float "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "delayed_jobs", force: :cascade do |t|
-    t.integer "priority", default: 0, null: false
-    t.integer "attempts", default: 0, null: false
-    t.text "handler", null: false
-    t.text "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
-    t.string "locked_by"
-    t.string "queue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
   create_table "pledges", force: :cascade do |t|
@@ -68,6 +53,9 @@ ActiveRecord::Schema.define(version: 20170822103737) do
     t.datetime "expire"
     t.datetime "trade"
     t.float "price_at_trade"
+    t.boolean "success"
+    t.float "price_at_expire"
+    t.string "order_type"
     t.index ["currency_from_id"], name: "index_propositions_on_currency_from_id"
     t.index ["currency_to_id"], name: "index_propositions_on_currency_to_id"
     t.index ["trader_id"], name: "index_propositions_on_trader_id"
