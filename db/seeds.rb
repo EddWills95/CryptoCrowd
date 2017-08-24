@@ -21,16 +21,19 @@ User.delete_all
 @investor = Investor.create!(email: "investor@money.org", name: "Charles Xavier", password: "password", password_confirmation: "password")
 @investor.skip_confirmation!
 @investor.wallet.update(btc: 23, eth: 265.52, ltc: 2532)
+@investor.save
 Investor.first.confirm
 
 @trader = Trader.create!(email: "someone@somewhere.com", name: "Max Keiser", password: "password", password_confirmation: "password")
 @trader.skip_confirmation!
 @trader.wallet.update(btc: 0.3244, eth: 15.324, ltc: 100)
+@trader.save
 Trader.first.confirm
 
 @trader2 = Trader.create!(email: "cryptotrader@places.com", name: "Satoshi Nakamoto", password: "password", password_confirmation: "password")
 @trader2.skip_confirmation!
 @trader2.wallet.update(btc: 3.23, eth:43.235, ltc: 3.5)
+@trader2.save
 Trader.last.confirm
 
 @proposition = Proposition.create!(title: "buy bitcoin", description: "Ac pulvinar sodales, nec nulla rutrum suspendisse vitae neque, sapien massa erat nec dignissim, ante sit molestie mi sed. Quis tellus erat risus in, vivamus lobortis in nullam, tempor odio, nulla ut pede libero eros, turpis a. Velit ac et eget lacus sed, urna enim imperdiet urna nonummy nec amet, nec non at lorem mattis ante mauris, morbi ipsum tempor, enim et.", currency_to_id: @currency1.id, currency_from_id: @currency2.id, trader_id: @trader.id, trade: DateTime.now + 1.days, expire: DateTime.now + 2.days, order_type: "buy")
