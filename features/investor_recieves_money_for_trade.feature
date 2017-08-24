@@ -1,5 +1,5 @@
 Feature: Investor gets return on pledge
-  @wip
+  
   Scenario: Investor's wallet balance increases
     Given there is a registered investor
       And the investor is signed in
