@@ -84,17 +84,17 @@
       })();
   </script>
 
-  // <script>
-  //   var tradeClock = document.getElementById("count-down-trade");
-  //   var expireClock = document.getElementById("count-down-expire");
-  //   var tradeTargetDate = new Date("<%= @proposition.trade.to_s %>");
-  //   var expireTargetDate = new Date("<%= @proposition.expire.to_s %>");
-  //   tradeClock.innerHTML = countdown(tradeTargetDate).toString();
-  //   expireClock.innerHTML = countdown(expireTargetDate).toString();
-  //   setInterval(function() {
-  //     tradeClock.innerHTML = countdown(tradeTargetDate).toString();
-  //     expireClock.innerHTML = countdown(expireTargetDate).toString();
-  //   })
-  // </script>
+   <script>
+     var tradeClock = document.getElementById("count-down-trade");
+     var expireClock = document.getElementById("count-down-expire");
+     var tradeTargetDate = new Date("<%= @proposition.trade.to_s %>");
+     var expireTargetDate = new Date("<%= @proposition.expire.to_s %>");
+     tradeClock.innerHTML = countdown(tradeTargetDate).toString();
+     expireClock.innerHTML = countdown(expireTargetDate).toString();
+     setInterval(function() {
+       tradeClock.innerHTML = countdown(tradeTargetDate).toString();
+       expireClock.innerHTML = countdown(expireTargetDate).toString();
+     })
+   </script>
 </article>
 
